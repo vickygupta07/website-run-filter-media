@@ -76,6 +76,8 @@
   nav ul{display:flex;gap:38px;list-style:none;align-items:center}
   nav a{font-size:.9rem;color:var(--muted);transition:color .3s;position:relative}
   nav a:hover{color:var(--text)}
+  nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+  nav a:not(.btn):hover::after{transform:scaleX(1)}
   nav .btn{padding:11px 24px}
   .burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
   .burger span{width:26px;height:2px;background:var(--gold);transition:.3s}
@@ -143,18 +145,20 @@
   .founder-visual .badge{z-index:2;left:50%;transform:translateX(-50%);bottom:18px;right:auto;text-align:center;white-space:nowrap}
 
   /* ---------- Portfolio / logos ---------- */
-  .brand-wall{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+  .brand-wall{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
   .brand{display:flex;flex-direction:column;align-items:center;gap:12px}
-  .brand-logo{width:100%;height:86px;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:16px 18px;transition:.35s var(--ease);border:1px solid rgba(255,255,255,.06)}
-  .brand:hover .brand-logo{transform:translateY(-4px);box-shadow:0 16px 32px rgba(0,0,0,.45)}
+  .brand-logo{width:100%;height:88px;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:16px 20px;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);border:1px solid rgba(255,255,255,.06)}
+  .brand:hover .brand-logo{transform:translateY(-4px);box-shadow:0 16px 34px rgba(0,0,0,.5)}
   .brand-logo img{max-width:100%;max-height:100%;object-fit:contain}
-  .brand-name{font-family:'Playfair Display';font-size:.95rem;color:var(--muted);letter-spacing:.03em;text-align:center;transition:.35s}
+  .brand-name{font-family:'Playfair Display';font-size:.95rem;color:var(--muted);letter-spacing:.03em;text-align:center;line-height:1.3;min-height:1.3em;transition:.35s}
   .brand:hover .brand-name{color:var(--gold)}
-  /* graceful fallback when a logo can't load */
+  /* graceful fallback when a logo can't load — styled to sit intentionally beside real-logo tiles */
   .brand.fail .brand-logo{background:var(--bg-soft);border:1px solid var(--line)}
+  .brand.fail:hover .brand-logo{border-color:var(--gold);box-shadow:0 16px 34px rgba(212,175,55,.12)}
   .brand.fail .brand-logo img{display:none}
-  .brand.fail .brand-logo::after{content:attr(data-name);color:var(--gold);font-family:'Playfair Display';font-size:1.02rem;text-align:center;line-height:1.2;padding:0 8px}
-  .brand.fail .brand-name{display:none}
+  .brand.fail .brand-logo::after{content:attr(data-name);color:var(--gold);font-family:'Playfair Display';font-size:1.02rem;text-align:center;line-height:1.2;padding:0 10px}
+  /* keep the label's footprint so fallback tiles align with logo tiles in the row */
+  .brand.fail .brand-name{visibility:hidden}
   .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
   .work{aspect-ratio:1;border:1px solid var(--line);border-radius:8px;position:relative;overflow:hidden;background:linear-gradient(160deg,#15151a,#0b0b0e)}
   .work .meta{position:absolute;inset:auto 0 0 0;padding:26px;background:linear-gradient(0deg,rgba(10,10,12,.95),transparent)}
@@ -258,7 +262,7 @@
     .grid,.quotes{grid-template-columns:1fr}
     .ben-grid{grid-template-columns:1fr;gap:40px}
     .work-grid{grid-template-columns:1fr 1fr}
-    .brand-wall{grid-template-columns:repeat(3,1fr)}
+    .brand-wall{grid-template-columns:repeat(4,1fr)}
     .glance-grid{grid-template-columns:repeat(2,1fr)}
     .vm-grid{grid-template-columns:1fr}
     .case-gallery{column-count:2}
