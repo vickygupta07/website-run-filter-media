@@ -342,6 +342,24 @@
   .form-ok.show{display:block}
   .form-ok strong{font-family:'Playfair Display';color:var(--gold);font-size:1.15rem;display:block;margin-bottom:6px}
 
+  /* ---------- Desktop-only motion: spotlight + custom cursor ---------- */
+  [data-parallax]{will-change:transform}
+  @media (hover:hover) and (pointer:fine){
+    .spot::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .6s var(--ease);
+      background:radial-gradient(280px circle at var(--mx,50%) var(--my,50%),rgba(212,175,55,.16),transparent 62%)}
+    .spot:hover::after{opacity:1}
+    #cur,#ring{position:fixed;top:0;left:0;pointer-events:none;z-index:1000;border-radius:50%;opacity:0;transition:opacity .35s}
+    #cur{width:7px;height:7px;background:var(--gold-hi);transform:translate(var(--x,-100px),var(--y,-100px)) translate(-50%,-50%) scale(var(--s,1));transition:opacity .35s,transform .15s}
+    #ring{width:38px;height:38px;border:1px solid rgba(241,210,122,.85);transform:translate(var(--x,-100px),var(--y,-100px)) translate(-50%,-50%);transition:opacity .35s,width .35s var(--ease-out),height .35s var(--ease-out),border-color .35s,background .35s}
+    body.cur-on{cursor:none}
+    body.cur-on a,body.cur-on button,body.cur-on [data-lb],body.cur-on label{cursor:none}
+    body.cur-on #cur,body.cur-on #ring{opacity:1}
+    body.cur-link #ring{width:62px;height:62px;border-color:rgba(241,210,122,.45);background:rgba(241,210,122,.07)}
+    body.cur-link #cur{--s:.45}
+    body.cur-text #ring{width:4px;height:28px;border-radius:2px;background:var(--gold-hi);border-color:transparent}
+    body.cur-text #cur{--s:0}
+  }
+
   /* ---------- Reveal animation ---------- */
   .reveal{opacity:0;transform:translateY(30px);transition:all .9s var(--ease)}
   .reveal.in{opacity:1;transform:none}
@@ -368,6 +386,7 @@
     .vm + .vm{border-left:0;border-top:1px solid var(--line-2);padding:40px 0 0}
     .foot-grid{grid-template-columns:1fr 1fr;gap:40px}
     .glance-grid{grid-template-columns:repeat(2,1fr)}
+    .glance-grid > div:last-child{grid-column:1/-1}
     .case-gallery{column-count:2}
     .cat-grid{grid-template-columns:repeat(2,1fr)}
     .creator-grid{grid-template-columns:repeat(2,1fr)}
@@ -744,6 +763,9 @@
 <a class="fab wa" href="https://wa.me/918512098300?text=Hi%20Filter%20Media%2C%20I%27d%20like%20to%20discuss%20a%20campaign." target="_blank" rel="noopener" aria-label="Chat with Filter Media on WhatsApp"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg></a>
 <button class="fab top" id="totop" aria-label="Back to top">↑</button>
 
+<!-- Custom cursor (desktop only) -->
+<div id="cur" aria-hidden="true"></div><div id="ring" aria-hidden="true"></div>
+
 <!-- Lightbox -->
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Case study preview">
   <button class="lb-x" id="lb-x" aria-label="Close preview">✕</button>
@@ -755,8 +777,11 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Sticky header + back-to-top
-  const hdr = document.getElementById('hdr'), totop = document.getElementById('totop');
-  const onScroll = () => { hdr.classList.toggle('scrolled', scrollY > 40); totop.classList.toggle('show', scrollY > 700); };
+  const hdr = document.getElementById('hdr'), totop = document.getElementById('totop'), prog = document.getElementById('progress');
+  const onScroll = () => {
+    hdr.classList.toggle('scrolled', scrollY > 40); totop.classList.toggle('show', scrollY > 700);
+    prog.style.width = Math.min(100, scrollY / (document.documentElement.scrollHeight - innerHeight) * 100) + '%';
+  };
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
   totop.addEventListener('click', () => scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }));
 
@@ -820,6 +845,50 @@
     history.replaceState(null, '', location.pathname + '#contact');
     const jump = () => ok.scrollIntoView({ block: 'center', behavior: 'instant' });
     requestAnimationFrame(jump); addEventListener('load', jump);
+  }
+
+  // ---------- Desktop-only motion ----------
+  const fine = matchMedia('(hover:hover) and (pointer:fine)').matches && !reduce;
+  if (fine) {
+    // Cursor spotlight on .spot tiles
+    document.addEventListener('mousemove', e => {
+      const t = e.target.closest('.spot'); if (!t) return;
+      const r = t.getBoundingClientRect();
+      t.style.setProperty('--mx', (e.clientX - r.left) + 'px'); t.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    }, { passive: true });
+
+    // Custom gold cursor: dot follows instantly, ring eases behind it
+    const cur = document.getElementById('cur'), ring = document.getElementById('ring'), B = document.body;
+    let mx = -100, my = -100, rx = -100, ry = -100, seen = false;
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cur.style.setProperty('--x', mx + 'px'); cur.style.setProperty('--y', my + 'px');
+      if (!seen) { seen = true; rx = mx; ry = my; B.classList.add('cur-on'); }
+      const t = e.target;
+      B.classList.toggle('cur-text', !!t.closest('input,textarea'));
+      B.classList.toggle('cur-link', !t.closest('input,textarea') && !!t.closest('a,button,[data-lb],.brand,.cat'));
+    }, { passive: true });
+    document.addEventListener('mouseleave', () => B.classList.remove('cur-on'));
+    document.addEventListener('mouseenter', () => { if (seen) B.classList.add('cur-on'); });
+
+    // Parallax drift + slow zoom while scrolling (runs inside the same rAF loop as the cursor)
+    const par = [...document.querySelectorAll('[data-parallax]')], zoom = [...document.querySelectorAll('.case-item img')];
+    let lastY = -1, dirty = true;
+    const update = () => {
+      const vh = innerHeight;
+      par.forEach(el => { const r = el.getBoundingClientRect(); if (r.bottom < 0 || r.top > vh) return;
+        const p = (r.top + r.height / 2 - vh / 2) / vh; el.style.setProperty('--py', (p * +el.dataset.parallax).toFixed(1) + 'px'); });
+      zoom.forEach(img => { const r = img.getBoundingClientRect(); if (r.bottom < 0 || r.top > vh) return;
+        const p = 1 - Math.min(1, Math.abs(r.top + r.height / 2 - vh / 2) / vh); img.style.setProperty('--pz', (1 + p * .06).toFixed(3)); });
+    };
+    addEventListener('resize', () => { dirty = true; });
+
+    (function loop(){
+      rx += (mx - rx) * .16; ry += (my - ry) * .16;
+      ring.style.setProperty('--x', rx + 'px'); ring.style.setProperty('--y', ry + 'px');
+      if (dirty || scrollY !== lastY) { lastY = scrollY; dirty = false; update(); }
+      requestAnimationFrame(loop);
+    })();
   }
 
   // Year
