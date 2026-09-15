@@ -165,23 +165,13 @@
   .head{max-width:760px;margin-bottom:72px}
   .head h2{font-size:clamp(2.2rem,4.4vw,3.6rem);margin-bottom:22px;letter-spacing:-.02em}
 
-  /* ---------- Services ---------- */
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .card{
-    background:linear-gradient(180deg,var(--card),var(--bg-soft));
-    border:1px solid var(--line);border-radius:6px;padding:38px 32px;
-    transition:all .45s var(--ease);position:relative;overflow:hidden;
-  }
-  .card:before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:.45s}
-  .card:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 24px 50px rgba(0,0,0,.5)}
-  .card:hover:before{opacity:1}
-  .card .ic{width:52px;height:52px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.3rem;margin-bottom:24px}
-  .card h3{font-size:1.35rem;margin-bottom:12px}
-  .card p{color:var(--muted);font-size:.96rem}
-
-  /* ---------- Vision / Mission ---------- */
-  .vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-  .vm-grid .card p{font-size:1rem}
+  /* ---------- Vision / Mission (editorial columns) ---------- */
+  .vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line-2);margin-top:8px}
+  .vm{padding:52px 56px 8px 0;position:relative}
+  .vm + .vm{border-left:1px solid var(--line-2);padding-left:56px;padding-right:0}
+  .vm-n{display:block;font-family:'Playfair Display';font-style:italic;font-weight:500;font-size:2.6rem;line-height:1;margin-bottom:22px;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .vm h3{font-size:1.7rem;margin-bottom:14px;letter-spacing:-.01em}
+  .vm p{color:var(--muted);font-size:1.04rem;line-height:1.75;max-width:46ch}
 
   /* ---------- Benefits ---------- */
   .benefits{background:var(--bg-2)}
@@ -192,113 +182,98 @@
   .ben-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
   .ben-list{list-style:none;display:flex;flex-direction:column;gap:26px}
   .ben-list li{display:flex;gap:18px}
-  .ben-list .chk{flex:none;width:30px;height:30px;border-radius:50%;background:rgba(212,175,55,.12);border:1px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:.8rem;margin-top:3px}
+  .ben-list .chk{flex:none;min-width:36px;font-family:'Playfair Display';font-style:italic;font-size:1.05rem;color:var(--gold);line-height:1.6}
+  .pull{font-family:'Playfair Display';font-style:italic;font-weight:500;font-size:clamp(1.25rem,2vw,1.6rem);line-height:1.35;color:var(--text);border-left:1px solid var(--gold);padding-left:22px;margin:0 0 30px}
   .ben-list h3{font-family:'Inter';font-weight:600;font-size:1.05rem;margin-bottom:4px;letter-spacing:0}
   .ben-list p{color:var(--muted);font-size:.92rem}
-  .ben-visual{aspect-ratio:4/5;border:1px solid var(--line);border-radius:8px;position:relative;overflow:hidden;
-    background:radial-gradient(600px 400px at 70% 20%,rgba(212,175,55,.14),transparent 60%),linear-gradient(160deg,#16161b,#0c0c0f)}
-  .ben-visual .badge{position:absolute;padding:16px 22px;background:rgba(20,20,24,.9);border:1px solid var(--line);border-radius:6px;backdrop-filter:blur(6px)}
-  .ben-visual .b1{top:12%;left:10%}
-  .ben-visual .b2{bottom:16%;right:8%}
-  .ben-visual .badge .n{font-family:'Playfair Display';font-size:1.6rem;color:var(--gold)}
-  .ben-visual .badge .l{font-size:.72rem;color:var(--muted)}
-  .founder-visual{aspect-ratio:4/5;padding:0}
-  .founder-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
-  .founder-visual .badge{z-index:2;left:50%;transform:translateX(-50%);bottom:18px;right:auto;text-align:center;white-space:nowrap}
+  .founder-visual{position:relative;aspect-ratio:4/5;max-width:520px;margin-left:auto;width:100%}
+  .founder-visual::before,.founder-visual::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:0}
+  .founder-visual::before{transform:translate(-18px,18px);border:1px solid var(--gold);opacity:.55}
+  .founder-visual::after{transform:translate(18px,-18px);border:1px solid var(--line)}
+  .fv-img{position:absolute;inset:0;overflow:hidden;background:var(--bg-3);z-index:1}
+  .fv-img img{width:100%;height:114%;margin-top:-7%;object-fit:cover;object-position:center top;transform:translateY(var(--py,0))}
+  .fv-plate{position:absolute;left:26px;bottom:26px;z-index:2;padding:16px 22px;background:rgba(8,8,9,.82);backdrop-filter:blur(10px);border:1px solid var(--line)}
+  .fv-plate .n{font-family:'Playfair Display';font-size:1.4rem;line-height:1.1;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .fv-plate .l{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:6px}
 
-  /* ---------- Portfolio / brand wall ---------- */
-  .brand-wall{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+  /* ---------- Brand wall (hairline grid) ---------- */
+  .brand-wall{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line-2);border:1px solid var(--line-2);list-style:none}
   .brand{
-    position:relative;min-height:96px;display:flex;align-items:center;justify-content:center;text-align:center;
-    padding:22px 16px;border:1px solid var(--line);border-radius:10px;
-    background:linear-gradient(180deg,var(--card),var(--bg-soft));
-    font-family:'Playfair Display';font-weight:600;font-size:1.12rem;letter-spacing:.02em;line-height:1.2;color:var(--text);
-    transition:transform .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease),color .35s;overflow:hidden;
+    position:relative;min-height:108px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;
+    padding:22px 16px;background:var(--bg);
+    font-family:'Playfair Display';font-weight:500;font-size:1.22rem;letter-spacing:.01em;line-height:1.2;color:var(--muted);
+    transition:color .4s,background .4s;
   }
-  .brand::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:.35s}
-  .brand:hover{transform:translateY(-4px);border-color:var(--gold);color:var(--gold);box-shadow:0 16px 34px rgba(212,175,55,.12)}
-  .brand:hover::before{opacity:1}
-  .brand.more{font-family:'Inter';font-weight:400;font-size:.9rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;border-style:dashed}
-  .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
-  .work{aspect-ratio:1;border:1px solid var(--line);border-radius:8px;position:relative;overflow:hidden;background:linear-gradient(160deg,#15151a,#0b0b0e)}
-  .work .meta{position:absolute;inset:auto 0 0 0;padding:26px;background:linear-gradient(0deg,rgba(10,10,12,.95),transparent)}
-  .work .cat{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-  .work h4{font-family:'Playfair Display';font-size:1.3rem;margin-top:6px}
-  .work .glow{position:absolute;inset:0;background:radial-gradient(400px 300px at 60% 30%,rgba(212,175,55,.16),transparent 60%);opacity:.6;transition:.4s;z-index:1}
-  .work:hover .glow{opacity:1}
-  .work.has-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .6s var(--ease)}
-  .work.has-img:hover img{transform:scale(1.05)}
-  .work.has-img .glow{background:none}
-  .work .meta{z-index:2}
+  .brand:hover{background:var(--bg-3);color:var(--text)}
+  .brand.more{font-family:'Inter';font-weight:400;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;outline:1px dashed var(--line);outline-offset:-12px}
 
   /* ---------- Case study gallery (masonry) ---------- */
-  .case-gallery{column-count:3;column-gap:20px;margin-top:8px}
-  .case-item{break-inside:avoid;margin:0 0 20px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);transition:all .4s var(--ease)}
-  .case-item img{width:100%;display:block;transition:transform .6s var(--ease)}
-  .case-item:hover{border-color:var(--gold);box-shadow:0 22px 48px rgba(0,0,0,.55);transform:translateY(-4px)}
-  .case-item:hover img{transform:scale(1.04)}
-  .case-item figcaption{padding:16px 20px;font-family:'Playfair Display';font-size:1.08rem;color:var(--text);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-  .case-item figcaption span{font-family:'Inter';font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:500}
+  .case-gallery{column-count:3;column-gap:22px;margin-top:8px}
+  .case-item{break-inside:avoid;margin:0 0 22px;position:relative;border-radius:3px;overflow:hidden;background:var(--bg-3);transition:box-shadow .5s var(--ease)}
+  .case-item a{display:block;position:relative;overflow:hidden}
+  .case-item img{width:100%;display:block;transform:scale(var(--pz,1));transition:transform 1.2s var(--ease-out)}
+  .case-item:hover{box-shadow:0 30px 70px rgba(0,0,0,.6)}
+  .case-item:hover img{transform:scale(calc(var(--pz,1) + .04))}
+  .case-item::after{content:"";position:absolute;inset:12px;border:1px solid rgba(212,175,55,.55);opacity:0;transition:opacity .5s var(--ease);z-index:3;pointer-events:none}
+  .case-item:hover::after{opacity:1}
+  .case-item figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;pointer-events:none;padding:64px 24px 24px;background:linear-gradient(180deg,transparent,rgba(8,8,9,.55) 40%,rgba(8,8,9,.95));font-family:'Playfair Display';font-size:1.25rem;color:var(--text);display:flex;flex-direction:column;gap:6px}
+  .case-item figcaption span{font-family:'Inter';font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500}
 
-  /* ---------- Creator network by category ---------- */
-  .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-  .cat{background:linear-gradient(180deg,var(--card),var(--bg-soft));border:1px solid var(--line);border-radius:8px;padding:30px 24px;transition:.4s var(--ease)}
-  .cat:hover{border-color:var(--gold);transform:translateY(-4px)}
-  .cat .cn{font-family:'Playfair Display';font-size:2.1rem;color:var(--gold);line-height:1}
-  .cat .ct{font-size:.98rem;color:var(--text);margin-top:10px;font-weight:400}
-  .cat .cd{font-size:.8rem;color:var(--muted);margin-top:4px}
+  /* ---------- Creator network by category (hairline grid) ---------- */
+  .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-2);border:1px solid var(--line-2)}
+  .cat{background:var(--bg);padding:40px 30px;position:relative;overflow:hidden;transition:background .45s var(--ease)}
+  .cat:hover{background:var(--bg-3)}
+  .cat .cn{font-family:'Playfair Display';font-size:2.7rem;line-height:1;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .cat .ct{font-family:'Playfair Display';font-size:1.18rem;color:var(--text);margin-top:16px;font-weight:500}
+  .cat .cd{font-size:.8rem;color:var(--muted);margin-top:6px;letter-spacing:.02em}
 
-  /* ---------- Meet the creators ---------- */
-  .creator-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-  .creator{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-align:center;transition:.4s var(--ease)}
-  .creator:hover{border-color:var(--gold);transform:translateY(-6px);box-shadow:0 24px 50px rgba(0,0,0,.5)}
-  .creator .cimg{width:100%;aspect-ratio:3/4;overflow:hidden;background:#0c0c0f}
-  .creator .cimg img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .6s var(--ease)}
-  .creator:hover .cimg img{transform:scale(1.05)}
-  .creator .cbody{padding:22px 18px}
-  .creator h3{font-family:'Playfair Display';font-weight:600;font-size:1.3rem}
-  .creator .crole{font-size:.92rem;color:var(--text);margin-top:6px}
-  .creator .ccamp{font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-top:10px}
+  /* ---------- Meet the creators (full-bleed portraits) ---------- */
+  .creator-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .creator{position:relative;aspect-ratio:3/4.15;overflow:hidden;border-radius:3px;background:var(--bg-3);text-align:left;transition:box-shadow .5s var(--ease)}
+  .creator:hover{box-shadow:0 30px 70px rgba(0,0,0,.6)}
+  .creator .cimg{position:absolute;inset:-7% 0;transition:transform 1.3s var(--ease-out)}
+  .creator .cimg img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:saturate(.8);transition:filter .8s;transform:translateY(var(--py,0))}
+  .creator:hover .cimg{transform:scale(1.06)}
+  .creator:hover .cimg img{filter:saturate(1)}
+  .creator::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,transparent 42%,rgba(8,8,9,.55) 68%,rgba(8,8,9,.96))}
+  .creator::after{content:"";position:absolute;inset:12px;border:1px solid rgba(212,175,55,.55);opacity:0;transition:opacity .5s var(--ease);z-index:2;pointer-events:none}
+  .creator:hover::after{opacity:1}
+  .creator figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:28px 26px}
+  .creator h3{font-family:'Playfair Display';font-weight:600;font-size:1.5rem;letter-spacing:-.01em}
+  .creator .crole{font-size:.9rem;color:var(--muted);margin-top:4px}
+  .creator .ccamp{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-top:14px;font-weight:500}
 
-  /* ---------- Company at a glance ---------- */
-  .glance-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
-  .glance-grid > div{background:var(--bg);padding:44px 18px;text-align:center;transition:.35s}
-  .glance-grid > div:hover{background:var(--card)}
-  .glance-grid .gn{font-family:'Playfair Display';font-size:2.4rem;color:var(--gold);line-height:1}
-  .glance-grid .gl{font-size:.82rem;color:var(--muted);letter-spacing:.04em;margin-top:12px}
+  /* ---------- Company at a glance (hairline grid) ---------- */
+  .glance-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line-2);border:1px solid var(--line-2)}
+  .glance-grid > div{background:var(--bg-2);padding:56px 18px;text-align:center;transition:background .4s}
+  .glance-grid > div:hover{background:var(--bg-3)}
+  .glance-grid .gn{font-family:'Playfair Display';font-size:clamp(2.2rem,3.4vw,3.2rem);line-height:1;white-space:nowrap;letter-spacing:-.02em;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .glance-grid .gl{font-size:.66rem;color:var(--muted);letter-spacing:.2em;text-transform:uppercase;margin-top:16px}
 
-  /* ---------- Testimonials ---------- */
-  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .quote{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:34px}
-  .quote .stars{color:var(--gold);letter-spacing:3px;margin-bottom:16px}
-  .quote p{font-size:1rem;color:var(--text);font-style:italic;font-family:'Playfair Display';font-weight:500}
-  .quote .who{margin-top:22px;display:flex;align-items:center;gap:12px}
-  .quote .av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#8a6d1f);display:flex;align-items:center;justify-content:center;color:#0a0a0c;font-weight:600}
-  .quote .who .nm{font-family:'Inter';font-weight:500;font-size:.92rem}
-  .quote .who .rl{font-size:.8rem;color:var(--muted)}
-
-  /* ---------- Dual path (For Brands / For Creators) ---------- */
-  .dual-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-  .dual{border:1px solid var(--line);border-radius:14px;padding:52px 44px;background:linear-gradient(160deg,var(--card),var(--bg-soft));transition:.4s var(--ease)}
-  .dual:hover{border-color:var(--gold);transform:translateY(-5px);box-shadow:0 24px 50px rgba(0,0,0,.5)}
-  .dual.alt{background:radial-gradient(600px 400px at 80% 15%,rgba(212,175,55,.12),transparent 60%),linear-gradient(160deg,#141418,#0b0b0e)}
-  .dual h3{font-family:'Playfair Display';font-size:1.85rem;margin:14px 0 16px;line-height:1.15}
-  .dual p{color:var(--muted);margin-bottom:30px;max-width:42ch}
+  /* ---------- Dual path (glass panels, gradient borders) ---------- */
+  .dual-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  .dual{position:relative;overflow:hidden;border:1px solid transparent;border-radius:6px;padding:56px 48px;transition:transform .5s var(--ease-out),box-shadow .5s;
+    background:linear-gradient(160deg,var(--bg-3),var(--bg-2)) padding-box,linear-gradient(160deg,rgba(212,175,55,.6),rgba(212,175,55,.06) 55%,rgba(212,175,55,.4)) border-box}
+  .dual:first-child{background:linear-gradient(160deg,rgba(212,175,55,.12),var(--bg-2) 62%) padding-box,linear-gradient(160deg,rgba(212,175,55,.75),rgba(212,175,55,.08) 55%,rgba(212,175,55,.45)) border-box}
+  .dual:hover{transform:translateY(-5px);box-shadow:0 30px 70px rgba(0,0,0,.55)}
+  .dual h3{font-family:'Playfair Display';font-size:2rem;margin:14px 0 18px;line-height:1.12;letter-spacing:-.015em}
+  .dual p{color:var(--muted);margin-bottom:34px;max-width:42ch;line-height:1.75}
 
   /* ---------- CTA + Contact ---------- */
   .contact{background:radial-gradient(900px 500px at 50% 0%,rgba(212,175,55,.10),transparent 60%),var(--bg-2)}
   .contact .wrap{max-width:760px;text-align:center}
   .contact h2{font-size:clamp(2.2rem,5vw,3.6rem);margin-bottom:18px}
-  form{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:left}
+  form{margin-top:52px;display:grid;grid-template-columns:1fr 1fr;gap:26px 36px;text-align:left}
   form .full{grid-column:1/-1}
   input,textarea,select{
-    width:100%;background:var(--bg);border:1px solid var(--line);color:var(--text);
-    padding:15px 18px;border-radius:3px;font-family:'Inter';font-size:.95rem;font-weight:300;transition:.3s;
+    width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--text);
+    padding:13px 0;border-radius:0;font-family:'Inter';font-size:1.02rem;font-weight:300;transition:border-color .35s;
   }
-  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold);background:#0d0d10}
-  textarea{min-height:130px;resize:vertical}
-  label{font-size:.78rem;letter-spacing:.06em;color:var(--muted);margin-bottom:8px;display:block}
-  form .btn{width:100%;justify-content:center}
+  input::placeholder,textarea::placeholder{color:rgba(167,164,155,.5)}
+  input:focus,textarea:focus,select:focus{outline:none;border-bottom-color:var(--gold);background:transparent}
+  textarea{min-height:110px;resize:vertical}
+  label{font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:0;display:block}
+  form .btn{width:100%;justify-content:center;margin-top:10px;padding:19px 32px}
   .form-note{font-size:.82rem;color:var(--muted);margin-top:16px}
   .contact-info{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 26px;margin-top:34px}
   .contact-info a{font-size:.92rem;color:var(--muted);transition:.3s;padding:8px 4px;display:inline-flex;align-items:center;gap:9px}
@@ -334,20 +309,24 @@
 
   /* ---------- Case study lightbox ---------- */
   .case-item a{display:block;cursor:zoom-in}
-  .lb{position:fixed;inset:0;z-index:200;background:rgba(6,6,8,.94);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:24px}
-  .lb.open{display:flex}
-  .lb img{max-width:min(96vw,1000px);max-height:88vh;border:1px solid var(--line);border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.7)}
+  .lb{position:fixed;inset:0;z-index:200;background:rgba(6,6,8,.94);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:32px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s var(--ease),visibility 0s .3s}
+  .lb.open{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .3s var(--ease),visibility 0s}
+  .lb img{max-width:min(94vw,980px);max-height:86vh;border:1px solid var(--line);outline:1px solid rgba(212,175,55,.22);outline-offset:12px;box-shadow:0 40px 100px rgba(0,0,0,.75);transform:scale(.97);transition:transform .45s var(--ease-out)}
+  .lb.open img{transform:none}
   .lb .lb-cap{position:absolute;left:0;right:0;bottom:22px;text-align:center;color:var(--muted);font-size:.9rem;font-family:'Playfair Display'}
   .lb .lb-x{position:absolute;top:18px;right:22px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(20,20,24,.9);color:var(--gold);font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.3s}
   .lb .lb-x:hover{border-color:var(--gold)}
 
-  /* ---------- Process (How we work) ---------- */
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;position:relative}
-  .step{background:linear-gradient(180deg,var(--card),var(--bg-soft));border:1px solid var(--line);border-radius:10px;padding:36px 28px;position:relative;transition:.4s var(--ease)}
-  .step:hover{border-color:var(--gold);transform:translateY(-5px);box-shadow:0 24px 50px rgba(0,0,0,.5)}
-  .step .no{font-family:'Playfair Display';font-size:3rem;line-height:1;color:var(--gold);opacity:.45;margin-bottom:22px}
-  .step h3{font-size:1.25rem;margin-bottom:10px}
-  .step p{color:var(--muted);font-size:.94rem}
+  /* ---------- Process (timeline) ---------- */
+  .steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:0 32px;position:relative;padding-top:2px}
+  .steps::before{content:"";position:absolute;left:0;right:0;top:32px;height:1px;background:linear-gradient(90deg,var(--gold),var(--line) 60%,transparent)}
+  .step{position:relative;padding:72px 12px 0 0}
+  .step::before{content:"";position:absolute;left:0;top:27px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:1px solid var(--gold);box-shadow:0 0 0 5px var(--bg);transition:.4s var(--ease);z-index:1}
+  .step:hover::before{background:var(--gold);box-shadow:0 0 0 5px var(--bg),0 0 22px rgba(212,175,55,.6)}
+  .step .no{font-family:'Playfair Display';font-size:3.8rem;line-height:1;font-weight:500;color:transparent;-webkit-text-stroke:1px rgba(212,175,55,.85);margin-bottom:18px;transition:color .4s}
+  .step:hover .no{color:var(--gold);-webkit-text-stroke:0}
+  .step h3{font-size:1.3rem;margin-bottom:10px}
+  .step p{color:var(--muted);font-size:.95rem;line-height:1.7}
 
   /* ---------- Floating actions ---------- */
   .fab{position:fixed;right:22px;z-index:90;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);transition:.35s var(--ease);box-shadow:0 12px 30px rgba(0,0,0,.45)}
@@ -359,7 +338,7 @@
   .fab.top:hover{border-color:var(--gold)}
 
   /* ---------- Form success ---------- */
-  .form-ok{display:none;margin:36px auto 0;max-width:620px;padding:22px 26px;border:1px solid var(--gold);border-radius:6px;background:rgba(212,175,55,.08);color:var(--text);text-align:left}
+  .form-ok{display:none;margin:40px auto 0;max-width:620px;padding:22px 26px;border:1px solid var(--line);border-left:2px solid var(--gold);background:rgba(212,175,55,.06);color:var(--text);text-align:left}
   .form-ok.show{display:block}
   .form-ok strong{font-family:'Playfair Display';color:var(--gold);font-size:1.15rem;display:block;margin-bottom:6px}
 
@@ -377,14 +356,18 @@
 
   /* ---------- Responsive ---------- */
   @media(max-width:900px){
-    .grid,.quotes{grid-template-columns:1fr}
-    .ben-grid{grid-template-columns:1fr;gap:40px}
-    .work-grid{grid-template-columns:1fr 1fr}
+    .ben-grid{grid-template-columns:1fr;gap:56px}
+    .founder-visual{margin:0 auto}
     .brand-wall{grid-template-columns:repeat(3,1fr)}
-    .steps{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:1fr;gap:0}
+    .steps::before{left:5px;top:0;bottom:0;right:auto;width:1px;height:auto;background:linear-gradient(180deg,var(--gold),var(--line) 70%,transparent)}
+    .step{padding:0 0 48px 40px}
+    .step::before{top:8px}
+    .vm-grid{grid-template-columns:1fr}
+    .vm{padding:40px 0 0}
+    .vm + .vm{border-left:0;border-top:1px solid var(--line-2);padding:40px 0 0}
     .foot-grid{grid-template-columns:1fr 1fr;gap:40px}
     .glance-grid{grid-template-columns:repeat(2,1fr)}
-    .vm-grid{grid-template-columns:1fr}
     .case-gallery{column-count:2}
     .cat-grid{grid-template-columns:repeat(2,1fr)}
     .creator-grid{grid-template-columns:repeat(2,1fr)}
@@ -401,7 +384,7 @@
     .hero-ring{right:-40vw;width:120vw;opacity:.45}
     .tk span{font-size:.95rem}
   }
-  @media(max-width:560px){.work-grid{grid-template-columns:1fr}.case-gallery{column-count:1}.brand-wall{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}.foot-grid{grid-template-columns:1fr;gap:36px}.foot-bottom{justify-content:center;text-align:center}.brand{font-size:1rem;min-height:84px}.fab{right:14px}.fab.wa{bottom:14px}.fab.top{display:none}}
+  @media(max-width:560px){.case-gallery{column-count:1}.brand-wall{grid-template-columns:repeat(2,1fr)}.creator-grid{grid-template-columns:1fr 1fr;gap:12px}.creator figcaption{padding:18px 16px}.creator h3{font-size:1.15rem}.cat-grid{grid-template-columns:1fr 1fr}.cat{padding:28px 20px}.glance-grid{grid-template-columns:1fr 1fr}.foot-grid{grid-template-columns:1fr;gap:36px}.foot-bottom{justify-content:center;text-align:center}.brand{font-size:1.02rem;min-height:88px}.fab{right:14px}.fab.wa{bottom:14px}.fab.top{display:none}}
 </style>
 
 <script type="application/ld+json">
@@ -486,13 +469,13 @@
 <section id="about">
   <div class="wrap">
     <div class="head reveal">
-      <span class="eyebrow">About Filter Media</span>
+      <span class="eyebrow"><span class="idx">01</span>About Filter Media</span>
       <h2>A 360° agency built for the creator economy.</h2>
       <p class="lead">Filter Media is a 360° Marketing, Celebrity Marketing, Influencer Marketing, Content Production, Branding, and Advertising agency — helping brands connect with audiences through creators, celebrities, content, and culture. Founded in 2026, we specialize in impactful digital campaigns that combine creativity, strategy, and measurable performance.</p>
     </div>
     <div class="vm-grid">
-      <div class="card reveal"><div class="ico">◉</div><h3>Our Vision</h3><p>To build impactful connections between brands, creators, and consumers — and become India's most trusted influencer and celebrity marketing agency.</p></div>
-      <div class="card reveal"><div class="ico">✧</div><h3>Our Mission</h3><p>To create authentic campaigns that drive engagement, trust, and business growth through innovative digital, influencer, and content marketing solutions.</p></div>
+      <div class="vm reveal"><span class="vm-n">I.</span><h3>Our Vision</h3><p>To build impactful connections between brands, creators, and consumers — and become India's most trusted influencer and celebrity marketing agency.</p></div>
+      <div class="vm reveal"><span class="vm-n">II.</span><h3>Our Mission</h3><p>To create authentic campaigns that drive engagement, trust, and business growth through innovative digital, influencer, and content marketing solutions.</p></div>
     </div>
   </div>
 </section>
@@ -501,19 +484,19 @@
 <section id="network">
   <div class="wrap">
     <div class="head reveal">
-      <span class="eyebrow">Our Creator Network</span>
+      <span class="eyebrow"><span class="idx">02</span>Our Creator Network</span>
       <h2>1000+ creators across every category.</h2>
       <p class="lead">A pan-India network spanning every niche — so we match your brand with creators whose audience already loves what you do.</p>
     </div>
     <div class="cat-grid">
-      <div class="cat reveal"><div class="cn">250+</div><div class="ct">Fashion &amp; Style</div><div class="cd">Apparel, accessories, luxury</div></div>
-      <div class="cat reveal"><div class="cn">220+</div><div class="ct">Lifestyle &amp; Vlogs</div><div class="cd">Daily life, family, home</div></div>
-      <div class="cat reveal"><div class="cn">180+</div><div class="ct">Beauty &amp; Skincare</div><div class="cd">Makeup, grooming, wellness</div></div>
-      <div class="cat reveal"><div class="cn">200+</div><div class="ct">Entertainment</div><div class="cd">Comedy, music, celebrities</div></div>
-      <div class="cat reveal"><div class="cn">160+</div><div class="ct">Food &amp; Cooking</div><div class="cd">Recipes, reviews, foodies</div></div>
-      <div class="cat reveal"><div class="cn">120+</div><div class="ct">Tech &amp; Gadgets</div><div class="cd">Reviews, unboxings, gaming</div></div>
-      <div class="cat reveal"><div class="cn">110+</div><div class="ct">Travel</div><div class="cd">Destinations, hotels, culture</div></div>
-      <div class="cat reveal"><div class="cn">90+</div><div class="ct">Fitness &amp; Health</div><div class="cd">Gym, yoga, nutrition</div></div>
+      <div class="cat spot reveal"><div class="cn">250+</div><div class="ct">Fashion &amp; Style</div><div class="cd">Apparel, accessories, luxury</div></div>
+      <div class="cat spot reveal"><div class="cn">220+</div><div class="ct">Lifestyle &amp; Vlogs</div><div class="cd">Daily life, family, home</div></div>
+      <div class="cat spot reveal"><div class="cn">180+</div><div class="ct">Beauty &amp; Skincare</div><div class="cd">Makeup, grooming, wellness</div></div>
+      <div class="cat spot reveal"><div class="cn">200+</div><div class="ct">Entertainment</div><div class="cd">Comedy, music, celebrities</div></div>
+      <div class="cat spot reveal"><div class="cn">160+</div><div class="ct">Food &amp; Cooking</div><div class="cd">Recipes, reviews, foodies</div></div>
+      <div class="cat spot reveal"><div class="cn">120+</div><div class="ct">Tech &amp; Gadgets</div><div class="cd">Reviews, unboxings, gaming</div></div>
+      <div class="cat spot reveal"><div class="cn">110+</div><div class="ct">Travel</div><div class="cd">Destinations, hotels, culture</div></div>
+      <div class="cat spot reveal"><div class="cn">90+</div><div class="ct">Fitness &amp; Health</div><div class="cd">Gym, yoga, nutrition</div></div>
     </div>
   </div>
 </section>
@@ -522,15 +505,15 @@
 <section id="creators" class="benefits">
   <div class="wrap">
     <div class="head reveal">
-      <span class="eyebrow">Meet the Creators</span>
+      <span class="eyebrow"><span class="idx">03</span>Meet the Creators</span>
       <h2>The faces behind our campaigns.</h2>
       <p class="lead">From established celebrities to rising micro-creators, Filter Media collaborates with India's most engaging voices.</p>
     </div>
     <div class="creator-grid">
-      <div class="creator reveal"><div class="cimg"><img src="creator-reem.webp" width="720" height="1280" loading="lazy" alt="Reem Shaikh" /></div><div class="cbody"><h3>Reem Shaikh</h3><p class="crole">Actress</p><p class="ccamp">Everteen Brand Campaign</p></div></div>
-      <div class="creator reveal"><div class="cimg"><img src="creator-rohit.webp" width="355" height="480" loading="lazy" alt="Rohit Saraf" /></div><div class="cbody"><h3>Rohit Saraf</h3><p class="crole">Actor</p><p class="ccamp">Vivo Phone Campaign</p></div></div>
-      <div class="creator reveal"><div class="cimg"><img src="creator-rashami.webp" width="735" height="916" loading="lazy" alt="Rashami Desai" /></div><div class="cbody"><h3>Rashami Desai</h3><p class="crole">Actress</p><p class="ccamp">Cesa Hair Care Campaign</p></div></div>
-      <div class="creator reveal"><div class="cimg"><img src="creator-kiku.webp" width="500" height="685" loading="lazy" alt="Kiku Sharda" /></div><div class="cbody"><h3>Kiku Sharda</h3><p class="crole">Actor</p><p class="ccamp">Pine Labs Campaign</p></div></div>
+      <figure class="creator reveal"><div class="cimg"><img src="creator-reem.webp" width="720" height="1280" loading="lazy" alt="Reem Shaikh" data-parallax="-26" /></div><figcaption><h3>Reem Shaikh</h3><p class="crole">Actress</p><p class="ccamp">Everteen Brand Campaign</p></figcaption></figure>
+      <figure class="creator reveal"><div class="cimg"><img src="creator-rohit.webp" width="355" height="480" loading="lazy" alt="Rohit Saraf" data-parallax="-26" /></div><figcaption><h3>Rohit Saraf</h3><p class="crole">Actor</p><p class="ccamp">Vivo Phone Campaign</p></figcaption></figure>
+      <figure class="creator reveal"><div class="cimg"><img src="creator-rashami.webp" width="735" height="916" loading="lazy" alt="Rashami Desai" data-parallax="-26" /></div><figcaption><h3>Rashami Desai</h3><p class="crole">Actress</p><p class="ccamp">Cesa Hair Care Campaign</p></figcaption></figure>
+      <figure class="creator reveal"><div class="cimg"><img src="creator-kiku.webp" width="500" height="685" loading="lazy" alt="Kiku Sharda" data-parallax="-26" /></div><figcaption><h3>Kiku Sharda</h3><p class="crole">Actor</p><p class="ccamp">Pine Labs Campaign</p></figcaption></figure>
     </div>
   </div>
 </section>
@@ -539,19 +522,20 @@
 <section id="founder" class="benefits">
   <div class="wrap ben-grid">
     <div class="reveal">
-      <span class="eyebrow">Leadership</span>
-      <h2 class="serif" style="font-size:clamp(1.9rem,3.6vw,2.8rem);margin-bottom:22px">Meet our Founder, <span class="gold">Ananya Gupta</span>.</h2>
-      <p class="lead" style="margin-bottom:26px">Ananya Gupta is the Founder &amp; CEO of Filter Media. She leads the agency's vision, influencer marketing strategy, celebrity collaborations, and brand partnerships — driving campaigns that connect the right brands with the right creators at the right moment.</p>
+      <span class="eyebrow"><span class="idx">04</span>Leadership</span>
+      <h2 class="serif" style="font-size:clamp(2rem,3.8vw,3rem);margin-bottom:22px;letter-spacing:-.02em">Meet our Founder, <span class="gold-text">Ananya Gupta</span>.</h2>
+      <blockquote class="pull">“Connecting the right brands with the right creators — at the right moment.”</blockquote>
+      <p class="lead" style="margin-bottom:28px">Ananya Gupta is the Founder &amp; CEO of Filter Media. She leads the agency's vision, influencer marketing strategy, celebrity collaborations, and brand partnerships — driving campaigns that connect the right brands with the right creators at the right moment.</p>
       <ul class="ben-list">
-        <li><span class="chk">✓</span><div><h3>Vision &amp; strategy</h3><p>Sets the direction for every campaign and the agency's growth across India.</p></div></li>
-        <li><span class="chk">✓</span><div><h3>Celebrity &amp; creator partnerships</h3><p>Personally curates collaborations that put brands at the heart of culture.</p></div></li>
-        <li><span class="chk">✓</span><div><h3>Brand partnerships</h3><p>Builds long-term relationships that turn campaigns into measurable business growth.</p></div></li>
+        <li><span class="chk">01</span><div><h3>Vision &amp; strategy</h3><p>Sets the direction for every campaign and the agency's growth across India.</p></div></li>
+        <li><span class="chk">02</span><div><h3>Celebrity &amp; creator partnerships</h3><p>Personally curates collaborations that put brands at the heart of culture.</p></div></li>
+        <li><span class="chk">03</span><div><h3>Brand partnerships</h3><p>Builds long-term relationships that turn campaigns into measurable business growth.</p></div></li>
       </ul>
-      <a class="btn btn-ghost" style="margin-top:32px" href="https://www.linkedin.com/in/ananya-gupta-8028b6171/" target="_blank" rel="noopener">in&nbsp;&nbsp;Connect with Ananya on LinkedIn →</a>
+      <a class="btn btn-ghost" style="margin-top:32px" href="https://www.linkedin.com/in/ananya-gupta-8028b6171/" target="_blank" rel="noopener"><svg class="ico sm" aria-hidden="true"><use href="#i-in"/></svg> Connect on LinkedIn</a>
     </div>
-    <div class="ben-visual founder-visual reveal">
-      <img src="founder.webp" width="600" height="536" loading="lazy" alt="Ananya Gupta, Founder & CEO of Filter Media" />
-      <div class="badge b2"><div class="n">Ananya Gupta</div><div class="l">Founder &amp; CEO · Est. 2026</div></div>
+    <div class="founder-visual reveal">
+      <div class="fv-img"><img src="founder.webp" width="600" height="536" loading="lazy" alt="Ananya Gupta, Founder & CEO of Filter Media" data-parallax="-22" /></div>
+      <div class="fv-plate"><div class="n">Ananya Gupta</div><div class="l">Founder &amp; CEO · Est. 2026</div></div>
     </div>
   </div>
 </section>
@@ -560,32 +544,32 @@
 <section id="work">
   <div class="wrap">
     <div class="head reveal" id="brands">
-      <span class="eyebrow">Featured Brands</span>
+      <span class="eyebrow"><span class="idx">05</span>Featured Brands</span>
       <h2>Trusted by leading brands.</h2>
       <p class="lead">From global tech to homegrown favourites — brands partner with Filter Media to reach India through creators and celebrities.</p>
     </div>
 
     <!-- Brand wall -->
     <ul class="brand-wall reveal" aria-label="Brands Filter Media has worked with">
-      <li class="brand">Hyundai</li>
-      <li class="brand">Vivo</li>
-      <li class="brand">Nestlé</li>
-      <li class="brand">Haldiram's</li>
-      <li class="brand">MR.DIY</li>
-      <li class="brand">Pine Labs</li>
-      <li class="brand">Everteen</li>
-      <li class="brand">Secret Temptation</li>
-      <li class="brand">Hollyland</li>
-      <li class="brand">Cesa Hair Care</li>
-      <li class="brand">Ceregrow</li>
-      <li class="brand">RENÉE</li>
-      <li class="brand">Trends</li>
-      <li class="brand">OZiva</li>
-      <li class="brand">Samsung</li>
-      <li class="brand">Bioderma</li>
-      <li class="brand">DermaTouch</li>
-      <li class="brand">Flipkart</li>
-      <li class="brand">Myntra Beauty</li>
+      <li class="brand spot">Hyundai</li>
+      <li class="brand spot">Vivo</li>
+      <li class="brand spot">Nestlé</li>
+      <li class="brand spot">Haldiram's</li>
+      <li class="brand spot">MR.DIY</li>
+      <li class="brand spot">Pine Labs</li>
+      <li class="brand spot">Everteen</li>
+      <li class="brand spot">Secret Temptation</li>
+      <li class="brand spot">Hollyland</li>
+      <li class="brand spot">Cesa Hair Care</li>
+      <li class="brand spot">Ceregrow</li>
+      <li class="brand spot">RENÉE</li>
+      <li class="brand spot">Trends</li>
+      <li class="brand spot">OZiva</li>
+      <li class="brand spot">Samsung</li>
+      <li class="brand spot">Bioderma</li>
+      <li class="brand spot">DermaTouch</li>
+      <li class="brand spot">Flipkart</li>
+      <li class="brand spot">Myntra Beauty</li>
       <li class="brand more">&amp; more</li>
     </ul>
 
@@ -610,16 +594,16 @@
 <section id="process">
   <div class="wrap">
     <div class="head reveal">
-      <span class="eyebrow">How We Work</span>
+      <span class="eyebrow"><span class="idx">06</span>How We Work</span>
       <h2>From brief to results — in four steps.</h2>
       <p class="lead">A simple, transparent process so you always know what's happening, who's creating, and what it's delivering.</p>
     </div>
-    <div class="steps">
-      <div class="step reveal"><div class="no">01</div><h3>Brief &amp; strategy</h3><p>We start with your goals, audience, and budget — then shape a campaign strategy built around them.</p></div>
-      <div class="step reveal"><div class="no">02</div><h3>Creator &amp; celebrity match</h3><p>We handpick creators and celebrities from our 1000+ network whose audience already loves your category.</p></div>
-      <div class="step reveal"><div class="no">03</div><h3>Content &amp; execution</h3><p>Scripting, shoots, approvals, and go-live — managed end-to-end so your team stays hands-off.</p></div>
-      <div class="step reveal"><div class="no">04</div><h3>Report &amp; optimise</h3><p>Reach, engagement, and conversions reported clearly — with learnings rolled into the next campaign.</p></div>
-    </div>
+    <ol class="steps">
+      <li class="step reveal"><div class="no">01</div><h3>Brief &amp; strategy</h3><p>We start with your goals, audience, and budget — then shape a campaign strategy built around them.</p></li>
+      <li class="step reveal"><div class="no">02</div><h3>Creator &amp; celebrity match</h3><p>We handpick creators and celebrities from our 1000+ network whose audience already loves your category.</p></li>
+      <li class="step reveal"><div class="no">03</div><h3>Content &amp; execution</h3><p>Scripting, shoots, approvals, and go-live — managed end-to-end so your team stays hands-off.</p></li>
+      <li class="step reveal"><div class="no">04</div><h3>Report &amp; optimise</h3><p>Reach, engagement, and conversions reported clearly — with learnings rolled into the next campaign.</p></li>
+    </ol>
   </div>
 </section>
 
@@ -627,7 +611,7 @@
 <section id="glance" class="benefits">
   <div class="wrap">
     <div class="head reveal" style="max-width:100%;text-align:center;margin-bottom:56px">
-      <span class="eyebrow">Company at a Glance</span>
+      <span class="eyebrow c"><span class="idx">07</span>Company at a Glance</span>
       <h2>Numbers that speak for themselves.</h2>
     </div>
     <div class="glance-grid">
@@ -635,7 +619,7 @@
       <div class="reveal"><div class="gn" data-count="50" data-suffix="+">50+</div><div class="gl">Campaigns Executed</div></div>
       <div class="reveal"><div class="gn" data-count="20" data-suffix="M+">20M+</div><div class="gl">Monthly Reach</div></div>
       <div class="reveal"><div class="gn" data-count="1000" data-suffix="+">1000+</div><div class="gl">Content Deliverables</div></div>
-      <div class="reveal"><div class="gn">Pan-India</div><div class="gl">Creator Network</div></div>
+      <div class="reveal"><div class="gn" style="font-size:clamp(1.7rem,2.5vw,2.4rem);padding-top:.35em">Pan-India</div><div class="gl">Creator Network</div></div>
     </div>
   </div>
 </section>
@@ -644,17 +628,17 @@
 <section id="join">
   <div class="wrap">
     <div class="head reveal" style="text-align:center;max-width:100%">
-      <span class="eyebrow">Let's Build Together</span>
+      <span class="eyebrow c"><span class="idx">08</span>Let's Build Together</span>
       <h2>Whether you're a brand or a creator — there's a place for you.</h2>
     </div>
     <div class="dual-grid">
-      <div class="dual reveal">
+      <div class="dual spot reveal">
         <span class="eyebrow">For Brands</span>
         <h3>Launch a campaign people remember.</h3>
         <p>Tap into our 1000+ creator network and celebrity partnerships to reach the right audience across India — with strategy, content, and results.</p>
         <a href="#contact" class="btn btn-primary">Start a Campaign →</a>
       </div>
-      <div class="dual alt reveal">
+      <div class="dual alt spot reveal">
         <span class="eyebrow">For Creators</span>
         <h3>Join India's fastest-growing creator network.</h3>
         <p>Collaborate with top brands, land paid campaigns, and grow your influence with Filter Media behind you.</p>
@@ -667,7 +651,7 @@
 <!-- ===================== CONTACT ===================== -->
 <section id="contact" class="contact">
   <div class="wrap">
-    <span class="eyebrow reveal">Let's Work Together</span>
+    <span class="eyebrow c reveal"><span class="idx">09</span>Let's Work Together</span>
     <h2 class="reveal">Ready to put your brand where influence lives?</h2>
     <p class="lead reveal" style="margin:0 auto">Tell us about your brand and goals. We'll get back to you with how Filter Media can grow your reach through creators, celebrities, and content.</p>
 
