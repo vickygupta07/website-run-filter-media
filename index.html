@@ -84,12 +84,12 @@
   .logo img{height:46px;width:auto;display:block;transition:height .4s var(--ease)}
   header.scrolled .logo img{height:38px}
   .logo span{color:var(--gold)}
-  nav ul{display:flex;gap:38px;list-style:none;align-items:center}
-  nav a{font-size:.9rem;color:var(--muted);transition:color .3s;position:relative}
-  nav a:hover{color:var(--text)}
-  nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
-  nav a:not(.btn):hover::after{transform:scaleX(1)}
-  nav .btn{padding:11px 24px}
+  #nav ul{display:flex;gap:38px;list-style:none;align-items:center}
+  #nav a{font-size:.9rem;color:var(--muted);transition:color .3s;position:relative}
+  #nav a:hover{color:var(--text)}
+  #nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+  #nav a:not(.btn):hover::after{transform:scaleX(1)}
+  #nav .btn{padding:11px 24px}
   .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0;padding:6px}
   .burger span{width:26px;height:2px;background:var(--gold);transition:.3s var(--ease);display:block}
   .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -252,18 +252,37 @@
   label{font-size:.78rem;letter-spacing:.06em;color:var(--muted);margin-bottom:8px;display:block}
   form .btn{width:100%;justify-content:center}
   .form-note{font-size:.82rem;color:var(--muted);margin-top:16px}
-  .contact-info{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 28px;margin-top:34px}
-  .contact-info a{font-size:.92rem;color:var(--muted);transition:.3s;padding:8px 4px}
-  .contact-info a:hover{color:var(--gold)}
+  .contact-info{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 26px;margin-top:34px}
+  .contact-info a{font-size:.92rem;color:var(--muted);transition:.3s;padding:8px 4px;display:inline-flex;align-items:center;gap:9px}
+  .contact-info a .ico{color:var(--gold)}
+  .contact-info a:hover{color:var(--text)}
+
+  /* ---------- Icons ---------- */
+  .ico{width:18px;height:18px;flex:none;display:inline-block;vertical-align:middle}
+  .ico.sm{width:14px;height:14px}
 
   /* ---------- Footer ---------- */
-  footer{padding:64px 24px 40px;border-top:1px solid var(--line);background:var(--bg)}
-  .foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-  .foot .logo{font-size:1.3rem}
-  .socials{display:flex;gap:14px}
-  .socials a{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:.3s;font-size:.85rem}
-  .socials a:hover{border-color:var(--gold);color:var(--gold)}
-  .copy{text-align:center;color:var(--muted);font-size:.82rem;margin-top:40px;border-top:1px solid var(--line);padding-top:28px}
+  footer{padding:84px 24px 36px;border-top:1px solid var(--line);background:linear-gradient(180deg,var(--bg),#070709)}
+  .foot-grid{display:grid;grid-template-columns:1.7fr 1fr 1.15fr 1.3fr;gap:48px}
+  .foot-brand .logo{font-size:1.3rem}
+  .foot-brand p{color:var(--muted);font-size:.94rem;max-width:36ch;margin:20px 0 28px}
+  .foot-col h4{font-family:'Inter';font-weight:500;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+  .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+  .foot-col a{color:var(--muted);font-size:.95rem;transition:color .3s,gap .3s;display:inline-flex;align-items:center;gap:8px}
+  .foot-col a:hover{color:var(--text)}
+  .foot-col a .ico.sm{color:var(--gold);opacity:0;transform:translateX(-4px);transition:.3s var(--ease)}
+  .foot-col a:hover .ico.sm{opacity:1;transform:none}
+  .foot-contact a{gap:12px}
+  .foot-contact .ico{color:var(--gold)}
+  .socials{display:flex;gap:12px}
+  .socials a{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:.3s var(--ease)}
+  .socials a:hover{border-color:var(--gold);color:var(--gold);background:rgba(212,175,55,.07);transform:translateY(-3px);box-shadow:0 10px 24px rgba(212,175,55,.12)}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap;margin-top:60px;padding-top:26px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
+  .foot-meta{opacity:.75}
+  .foot-top{display:inline-flex;align-items:center;gap:8px;color:var(--gold);transition:.3s}
+  .foot-top:hover{color:var(--gold-soft)}
+  .foot-top:hover .ico{transform:translateY(-2px)}
+  .foot-top .ico{transition:.3s var(--ease)}
 
   /* ---------- Case study lightbox ---------- */
   .case-item a{display:block;cursor:zoom-in}
@@ -286,7 +305,7 @@
   .fab{position:fixed;right:22px;z-index:90;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);transition:.35s var(--ease);box-shadow:0 12px 30px rgba(0,0,0,.45)}
   .fab.wa{bottom:22px;background:#25d366;color:#fff;border-color:transparent}
   .fab.wa:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(37,211,102,.35)}
-  .fab.wa svg{width:26px;height:26px;fill:currentColor}
+  .fab.wa svg{width:26px;height:26px}
   .fab.top{bottom:86px;background:rgba(20,20,24,.92);color:var(--gold);opacity:0;pointer-events:none;transform:translateY(10px);backdrop-filter:blur(6px);cursor:pointer;font-size:1rem}
   .fab.top.show{opacity:1;pointer-events:auto;transform:none}
   .fab.top:hover{border-color:var(--gold)}
@@ -299,6 +318,8 @@
   /* ---------- Reveal animation ---------- */
   .reveal{opacity:0;transform:translateY(30px);transition:all .9s var(--ease)}
   .reveal.in{opacity:1;transform:none}
+  /* keep floating buttons off the footer bottom bar when the wrap fills the viewport */
+  @media(max-width:1300px){footer{padding-bottom:100px}}
   @media(prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
     .reveal{opacity:1;transform:none;transition:none}
@@ -312,6 +333,7 @@
     .work-grid{grid-template-columns:1fr 1fr}
     .brand-wall{grid-template-columns:repeat(3,1fr)}
     .steps{grid-template-columns:1fr 1fr}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:40px}
     .glance-grid{grid-template-columns:repeat(2,1fr)}
     .vm-grid{grid-template-columns:1fr}
     .case-gallery{column-count:2}
@@ -319,14 +341,14 @@
     .creator-grid{grid-template-columns:repeat(2,1fr)}
     .dual-grid{grid-template-columns:1fr}
     .dual{padding:40px 30px}
-    nav ul{display:none}
+    #nav ul{display:none}
     .burger{display:flex}
-    nav.open ul{display:flex;position:absolute;top:64px;right:20px;flex-direction:column;background:var(--bg-soft);border:1px solid var(--line);padding:22px 28px;border-radius:8px;gap:20px;box-shadow:0 24px 50px rgba(0,0,0,.6)}
+    #nav.open ul{display:flex;position:absolute;top:64px;right:20px;flex-direction:column;background:var(--bg-soft);border:1px solid var(--line);padding:22px 28px;border-radius:8px;gap:20px;box-shadow:0 24px 50px rgba(0,0,0,.6)}
     section{padding:88px 20px}
     form{grid-template-columns:1fr}
     .hero-stats{gap:32px}
   }
-  @media(max-width:560px){.work-grid{grid-template-columns:1fr}.case-gallery{column-count:1}.brand-wall{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}.brand{font-size:1rem;min-height:84px}.fab{right:14px}.fab.wa{bottom:14px}.fab.top{display:none}}
+  @media(max-width:560px){.work-grid{grid-template-columns:1fr}.case-gallery{column-count:1}.brand-wall{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}.foot-grid{grid-template-columns:1fr;gap:36px}.foot-bottom{justify-content:center;text-align:center}.brand{font-size:1rem;min-height:84px}.fab{right:14px}.fab.wa{bottom:14px}.fab.top{display:none}}
 </style>
 
 <script type="application/ld+json">
@@ -354,6 +376,17 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4"/></g><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-1 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5C9.9 8.5 9.3 7 9 6.4c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.5-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.1 15 3.7 13.5 3.7 12c0-4.6 3.7-8.3 8.3-8.3s8.3 3.7 8.3 8.3-3.7 8.2-8.3 8.2z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></g></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></g></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></g></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></g></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></g></symbol>
+</svg>
 
 <!-- ===================== NAV ===================== -->
 <header id="hdr">
@@ -398,8 +431,8 @@
       <p class="lead">Filter Media is a 360° Marketing, Celebrity Marketing, Influencer Marketing, Content Production, Branding, and Advertising agency — helping brands connect with audiences through creators, celebrities, content, and culture. Founded in 2026, we specialize in impactful digital campaigns that combine creativity, strategy, and measurable performance.</p>
     </div>
     <div class="vm-grid">
-      <div class="card reveal"><div class="ic">◉</div><h3>Our Vision</h3><p>To build impactful connections between brands, creators, and consumers — and become India's most trusted influencer and celebrity marketing agency.</p></div>
-      <div class="card reveal"><div class="ic">✧</div><h3>Our Mission</h3><p>To create authentic campaigns that drive engagement, trust, and business growth through innovative digital, influencer, and content marketing solutions.</p></div>
+      <div class="card reveal"><div class="ico">◉</div><h3>Our Vision</h3><p>To build impactful connections between brands, creators, and consumers — and become India's most trusted influencer and celebrity marketing agency.</p></div>
+      <div class="card reveal"><div class="ico">✧</div><h3>Our Mission</h3><p>To create authentic campaigns that drive engagement, trust, and business growth through innovative digital, influencer, and content marketing solutions.</p></div>
     </div>
   </div>
 </section>
@@ -595,12 +628,12 @@
     </form>
 
     <div class="contact-info reveal">
-      <a href="mailto:work@filtermedia.co.in">✉ work@filtermedia.co.in</a>
-      <a href="tel:+918512098300">☎ +91 85120 98300</a>
-      <a href="https://www.filtermedia.co.in" target="_blank" rel="noopener">🌐 www.filtermedia.co.in</a>
-      <a href="https://instagram.com/filtermediaofficial" target="_blank" rel="noopener">◎ Instagram</a>
-      <a href="https://www.linkedin.com/in/ananya-gupta-8028b6171/" target="_blank" rel="noopener">in LinkedIn</a>
-      <a href="https://www.facebook.com/profile.php?id=61589667240137" target="_blank" rel="noopener">f Facebook</a>
+      <a href="mailto:work@filtermedia.co.in"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg> work@filtermedia.co.in</a>
+      <a href="tel:+918512098300"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> +91 85120 98300</a>
+      <a href="https://wa.me/918512098300" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> WhatsApp</a>
+      <a href="https://instagram.com/filtermediaofficial" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg> Instagram</a>
+      <a href="https://www.linkedin.com/in/ananya-gupta-8028b6171/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-in"/></svg> LinkedIn</a>
+      <a href="https://www.facebook.com/profile.php?id=61589667240137" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-fb"/></svg> Facebook</a>
     </div>
   </div>
 </section>
@@ -610,22 +643,61 @@
 <!-- ===================== FOOTER ===================== -->
 <footer>
   <div class="wrap">
-    <div class="foot">
-      <div class="logo"><img src="logo.webp" width="192" height="192" alt="Filter Media logo" />Filter <span>Media</span></div>
-      <div class="socials">
-        <a href="https://instagram.com/filtermediaofficial" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
-        <a href="https://www.linkedin.com/in/ananya-gupta-8028b6171/" target="_blank" rel="noopener" aria-label="LinkedIn">IN</a>
-        <a href="https://www.facebook.com/profile.php?id=61589667240137" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
-        <a href="mailto:work@filtermedia.co.in" aria-label="Email">✉</a>
-        <a href="tel:+918512098300" aria-label="Phone">☎</a>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#main" class="logo" aria-label="Filter Media — back to top"><img src="logo.webp" width="192" height="192" alt="Filter Media logo" />Filter <span>Media</span></a>
+        <p>A 360° influencer, celebrity &amp; content marketing agency — connecting brands with creators, celebrities, content, and culture across India.</p>
+        <div class="socials">
+          <a href="https://instagram.com/filtermediaofficial" target="_blank" rel="noopener" aria-label="Filter Media on Instagram" title="Instagram"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg></a>
+          <a href="https://www.linkedin.com/in/ananya-gupta-8028b6171/" target="_blank" rel="noopener" aria-label="Ananya Gupta on LinkedIn" title="LinkedIn"><svg class="ico" aria-hidden="true"><use href="#i-in"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61589667240137" target="_blank" rel="noopener" aria-label="Filter Media on Facebook" title="Facebook"><svg class="ico" aria-hidden="true"><use href="#i-fb"/></svg></a>
+          <a href="https://wa.me/918512098300" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="WhatsApp"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg></a>
+        </div>
+      </div>
+
+      <nav class="foot-col" aria-label="Footer — explore">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#network">Creator Network</a></li>
+          <li><a href="#creators">Meet the Creators</a></li>
+          <li><a href="#founder">Our Founder</a></li>
+          <li><a href="#work">Work &amp; Case Studies</a></li>
+          <li><a href="#process">How We Work</a></li>
+        </ul>
+      </nav>
+
+      <nav class="foot-col" aria-label="Footer — work with us">
+        <h4>Work With Us</h4>
+        <ul>
+          <li><a href="#contact">Start a campaign <svg class="ico sm" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+          <li><a href="mailto:work@filtermedia.co.in?subject=Creator%20Application%20—%20Filter%20Media">Join as a creator <svg class="ico sm" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+          <li><a href="https://wa.me/918512098300?text=Hi%20Filter%20Media%2C%20I%27d%20like%20to%20discuss%20a%20campaign." target="_blank" rel="noopener">Chat on WhatsApp <svg class="ico sm" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+          <li><a href="#join">For Brands &amp; Creators</a></li>
+        </ul>
+      </nav>
+
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <ul class="foot-contact">
+          <li><a href="mailto:work@filtermedia.co.in"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg><span>work@filtermedia.co.in</span></a></li>
+          <li><a href="tel:+918512098300"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><span>+91 85120 98300</span></a></li>
+          <li><a href="https://wa.me/918512098300" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp us</span></a></li>
+          <li><a href="https://filtermedia.co.in"><svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg><span>filtermedia.co.in</span></a></li>
+        </ul>
       </div>
     </div>
-    <div class="copy">© <span id="yr"></span> Filter Media — Where Brands Meet Influence. 360° Influencer, Celebrity &amp; Content Marketing Agency, India.</div>
+
+    <div class="foot-bottom">
+      <div class="copy">© <span id="yr"></span> Filter Media — Where Brands Meet Influence.</div>
+      <div class="foot-meta">360° Influencer, Celebrity &amp; Content Marketing Agency · India</div>
+      <a href="#main" class="foot-top">Back to top <svg class="ico sm" aria-hidden="true"><use href="#i-up"/></svg></a>
+    </div>
   </div>
 </footer>
 
 <!-- Floating actions -->
-<a class="fab wa" href="https://wa.me/918512098300?text=Hi%20Filter%20Media%2C%20I%27d%20like%20to%20discuss%20a%20campaign." target="_blank" rel="noopener" aria-label="Chat with Filter Media on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-1 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5C9.9 8.5 9.3 7 9 6.4c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.5-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.1 15 3.7 13.5 3.7 12c0-4.6 3.7-8.3 8.3-8.3s8.3 3.7 8.3 8.3-3.7 8.2-8.3 8.2z"/></svg></a>
+<a class="fab wa" href="https://wa.me/918512098300?text=Hi%20Filter%20Media%2C%20I%27d%20like%20to%20discuss%20a%20campaign." target="_blank" rel="noopener" aria-label="Chat with Filter Media on WhatsApp"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg></a>
 <button class="fab top" id="totop" aria-label="Back to top">↑</button>
 
 <!-- Lightbox -->
