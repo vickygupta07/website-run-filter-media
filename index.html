@@ -44,6 +44,9 @@
     --ease-out:cubic-bezier(.16,1,.3,1);
   }
   *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-padding-top:76px}
+  ::selection{background:rgba(212,175,55,.32);color:#fff}
+  h1,h2,h3{text-wrap:balance}
   body{
     background:var(--bg);
     color:var(--text);
@@ -69,17 +72,17 @@
   :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:3px}
   .skip{position:absolute;left:16px;top:-60px;z-index:100;background:var(--gold);color:#0a0a0c;padding:10px 16px;border-radius:3px;font-weight:500;transition:top .2s}
   .skip:focus{top:16px}
-  section{padding:clamp(96px,11vw,150px) 24px;position:relative}
+  section{padding:clamp(72px,7.6vw,108px) 24px;position:relative}
   .wrap{max-width:var(--max);margin:0 auto}
   .gold{color:var(--gold)}
   .eyebrow{
     display:inline-flex;align-items:center;gap:14px;font-family:'Inter';font-weight:500;font-size:.7rem;
-    letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;
+    letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;
   }
   .eyebrow::before{content:"";width:28px;height:1px;background:var(--gold);flex:none;opacity:.8}
   .eyebrow.c::after{content:"";width:28px;height:1px;background:var(--gold);flex:none;opacity:.8}
   .eyebrow .idx{font-family:'Playfair Display';font-style:italic;font-weight:500;font-size:.95rem;letter-spacing:0;text-transform:none;opacity:.7;margin-right:-4px}
-  .lead{color:var(--muted);font-size:1.1rem;line-height:1.75;max-width:620px}
+  .lead{color:var(--muted);font-size:1.03rem;line-height:1.7;max-width:600px}
   .hairline{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.6}
 
   /* ---------- Buttons ---------- */
@@ -124,7 +127,7 @@
   /* ---------- Hero (editorial) ---------- */
   .hero{
     min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;
-    padding:150px 24px 170px;
+    padding:120px 24px 132px;
     background:
       radial-gradient(1100px 620px at 82% 6%, rgba(212,175,55,.14), transparent 62%),
       radial-gradient(700px 500px at 6% 96%, rgba(212,175,55,.07), transparent 60%),
@@ -135,57 +138,60 @@
   .hero-ring .dash{stroke-dasharray:.6 2.4;stroke-width:.35}
   @keyframes ringspin{to{transform:translateY(-50%) rotate(360deg)}}
   .hero .wrap{position:relative;z-index:2}
-  .hero h1{font-size:clamp(2.8rem,5.6vw,5.3rem);line-height:1.04;letter-spacing:-.025em;margin:18px 0 30px;max-width:15ch}
+  .hero h1{font-size:clamp(2.6rem,5.2vw,4.9rem);line-height:1.04;letter-spacing:-.025em;margin:16px 0 26px;max-width:15ch}
   .hero h1 em{font-style:italic;font-weight:500;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
   .reveal.words{opacity:1;transform:none}
   .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.06em .04em .14em 0;margin:-.06em 0 -.14em 0}
   .w>span{display:inline-block;transform:translateY(112%);transition:transform .85s var(--ease-out);transition-delay:calc(var(--d,0)*55ms)}
   .in .w>span{transform:none}
-  .hero-cta{display:flex;gap:16px;margin-top:42px;flex-wrap:wrap}
-  .hero-stats{display:flex;margin-top:76px;flex-wrap:wrap}
+  .hero-cta{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap}
+  .hero-stats{display:flex;margin-top:56px;flex-wrap:wrap}
   .hero-stats>div{padding:6px 44px;border-left:1px solid var(--line)}
   .hero-stats>div:first-child{padding-left:0;border-left:0}
-  .hero-stats .n{font-family:'Playfair Display';font-size:2.7rem;line-height:1;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero-stats .n{font-family:'Playfair Display';font-size:2.5rem;line-height:1;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
   .hero-stats .l{font-size:.68rem;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-top:8px}
   .scroll-cue{position:absolute;left:34px;bottom:96px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:14px;font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;color:var(--muted)}
   .scroll-cue .sc-line{width:1px;height:58px;background:var(--line);position:relative;overflow:hidden}
   .scroll-cue .sc-line::after{content:"";position:absolute;left:0;top:-100%;width:100%;height:100%;background:var(--gold);animation:scdrop 2.4s var(--ease) infinite}
   @keyframes scdrop{to{top:100%}}
-  .ticker{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:20px 0;overflow:hidden;border-top:1px solid var(--line-2);background:rgba(8,8,9,.72);
+  .ticker{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:13px 0;overflow:hidden;border-top:1px solid var(--line-2);background:rgba(8,8,9,.72);
     mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
-  .ticker-track{display:flex;width:max-content;animation:ticker 70s linear infinite}
+  .ticker-track{display:flex;width:max-content;animation:ticker 120s linear infinite}
   .ticker:hover .ticker-track{animation-play-state:paused}
-  .tk{display:flex;align-items:center;gap:46px;padding-right:46px;flex:none}
+  .tk{display:flex;align-items:center;gap:40px;padding-right:40px;flex:none}
+  .tk .tk-b{display:flex;align-items:center;gap:14px}
+  .tk .tk-l{display:flex;align-items:center;justify-content:center;flex:none;width:86px;height:34px;padding:6px 10px;background:#f4f2ec;border-radius:3px}
+  .tk .tk-l img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain}
   .tk span{font-family:'Playfair Display';font-style:italic;font-weight:500;font-size:1.08rem;color:var(--muted);white-space:nowrap;letter-spacing:.01em}
   .tk i{color:var(--gold);font-style:normal;font-size:.45rem;opacity:.85}
   @keyframes ticker{to{transform:translateX(-50%)}}
 
   /* ---------- Section heads ---------- */
-  .head{max-width:760px;margin-bottom:72px}
-  .head h2{font-size:clamp(2.2rem,4.4vw,3.6rem);margin-bottom:22px;letter-spacing:-.02em}
+  .head{max-width:760px;margin-bottom:52px}
+  .head h2{font-size:clamp(2rem,3.9vw,3.2rem);margin-bottom:18px;letter-spacing:-.02em}
 
   /* ---------- Vision / Mission (editorial columns) ---------- */
   .vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line-2);margin-top:8px}
-  .vm{padding:52px 56px 8px 0;position:relative}
+  .vm{padding:40px 56px 4px 0;position:relative}
   .vm + .vm{border-left:1px solid var(--line-2);padding-left:56px;padding-right:0}
-  .vm-n{display:block;font-family:'Playfair Display';font-style:italic;font-weight:500;font-size:2.6rem;line-height:1;margin-bottom:22px;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .vm h3{font-size:1.7rem;margin-bottom:14px;letter-spacing:-.01em}
-  .vm p{color:var(--muted);font-size:1.04rem;line-height:1.75;max-width:46ch}
+  .vm-n{display:block;font-family:'Playfair Display';font-style:italic;font-weight:500;font-size:2.2rem;line-height:1;margin-bottom:16px;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .vm h3{font-size:1.45rem;margin-bottom:12px;letter-spacing:-.01em}
+  .vm p{color:var(--muted);font-size:.98rem;line-height:1.7;max-width:46ch}
 
   /* ---------- Benefits ---------- */
   .benefits{background:var(--bg-2)}
-  .benefits::before,.benefits::after,.contact::before,footer::before{content:"";position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--line) 18%,rgba(212,175,55,.6) 50%,var(--line) 82%,transparent)}
-  .benefits::before,.contact::before,footer::before{top:0}
+  .benefits::before,.benefits::after,.contact::before,footer::before,#process::before{content:"";position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--line) 18%,rgba(212,175,55,.6) 50%,var(--line) 82%,transparent)}
+  .benefits::before,.contact::before,footer::before,#process::before{top:0}
   .benefits::after{bottom:0}
   .benefits + .benefits::before{display:none}
-  .ben-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-  .ben-list{list-style:none;display:flex;flex-direction:column;gap:26px}
+  .ben-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .ben-list{list-style:none;display:flex;flex-direction:column;gap:20px}
   .ben-list li{display:flex;gap:18px}
   .ben-list .chk{flex:none;min-width:36px;font-family:'Playfair Display';font-style:italic;font-size:1.05rem;color:var(--gold);line-height:1.6}
-  .pull{font-family:'Playfair Display';font-style:italic;font-weight:500;font-size:clamp(1.25rem,2vw,1.6rem);line-height:1.35;color:var(--text);border-left:1px solid var(--gold);padding-left:22px;margin:0 0 30px}
+  .pull{font-family:'Playfair Display';font-style:italic;font-weight:500;font-size:clamp(1.25rem,2vw,1.6rem);line-height:1.35;color:var(--text);border-left:1px solid var(--gold);padding-left:22px;margin:0 0 24px}
   .ben-list h3{font-family:'Inter';font-weight:600;font-size:1.05rem;margin-bottom:4px;letter-spacing:0}
   .ben-list p{color:var(--muted);font-size:.92rem}
-  .founder-visual{position:relative;aspect-ratio:4/5;max-width:520px;margin-left:auto;width:100%}
+  .founder-visual{position:relative;aspect-ratio:4/5;max-width:470px;margin-left:auto;width:100%}
   .founder-visual::before,.founder-visual::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:0}
   .founder-visual::before{transform:translate(-18px,18px);border:1px solid var(--gold);opacity:.55}
   .founder-visual::after{transform:translate(18px,-18px);border:1px solid var(--line)}
@@ -198,16 +204,21 @@
   /* ---------- Brand wall (hairline grid) ---------- */
   .brand-wall{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line-2);border:1px solid var(--line-2);list-style:none}
   .brand{
-    position:relative;min-height:108px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;
-    padding:22px 16px;background:var(--bg);
-    font-family:'Playfair Display';font-weight:500;font-size:1.22rem;letter-spacing:.01em;line-height:1.2;color:var(--muted);
+    position:relative;min-height:100px;display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center;text-align:center;overflow:hidden;
+    padding:20px 14px 16px;background:var(--bg);
+    font-family:'Playfair Display';font-weight:500;font-size:1rem;letter-spacing:.01em;line-height:1.2;color:var(--muted);
     transition:color .4s,background .4s;
   }
   .brand:hover{background:var(--bg-3);color:var(--text)}
+  /* logo plate: brand marks in full colour on an ivory plate so dark logos stay legible on the dark tile */
+  .brand .bl{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;width:100%;max-width:152px;height:56px;padding:8px 15px;background:#f4f2ec;border-radius:4px;box-shadow:0 0 0 1px rgba(212,175,55,0),inset 0 0 0 1px rgba(0,0,0,.05);transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+  .brand .bl img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain}
+  .brand:hover .bl{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(212,175,55,.6),0 14px 30px rgba(0,0,0,.45)}
+  .brand .bn{position:relative;z-index:1}
   .brand.more{font-family:'Inter';font-weight:400;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;outline:1px dashed var(--line);outline-offset:-12px}
 
   /* ---------- Case study gallery (masonry) ---------- */
-  .case-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1000px;margin:8px auto 0}
+  .case-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:940px;margin:0 auto}
   .case-item{position:relative;border-radius:3px;overflow:hidden;background:var(--bg-3);transition:box-shadow .5s var(--ease)}
   .case-item a{display:block;position:relative;overflow:hidden;aspect-ratio:4/5}
   .case-item img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transform:scale(var(--pz,1));transition:transform 1.2s var(--ease-out)}
@@ -220,15 +231,15 @@
 
   /* ---------- Creator network by category (hairline grid) ---------- */
   .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-2);border:1px solid var(--line-2)}
-  .cat{background:var(--bg);padding:40px 30px;position:relative;overflow:hidden;transition:background .45s var(--ease)}
+  .cat{background:var(--bg);padding:32px 28px;position:relative;overflow:hidden;transition:background .45s var(--ease)}
   .cat:hover{background:var(--bg-3)}
-  .cat .cn{font-family:'Playfair Display';font-size:2.7rem;line-height:1;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .cat .ct{font-family:'Playfair Display';font-size:1.18rem;color:var(--text);margin-top:16px;font-weight:500}
+  .cat .cn{font-family:'Playfair Display';font-size:2.4rem;line-height:1;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .cat .ct{font-family:'Playfair Display';font-size:1.12rem;color:var(--text);margin-top:12px;font-weight:500}
   .cat .cd{font-size:.8rem;color:var(--muted);margin-top:6px;letter-spacing:.02em}
 
   /* ---------- Meet the creators (full-bleed portraits) ---------- */
-  .creator-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-  .creator{position:relative;aspect-ratio:3/4.15;overflow:hidden;border-radius:3px;background:var(--bg-3);text-align:left;transition:box-shadow .5s var(--ease)}
+  .creator-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .creator{position:relative;aspect-ratio:3/3.8;overflow:hidden;border-radius:3px;background:var(--bg-3);text-align:left;transition:box-shadow .5s var(--ease)}
   .creator:hover{box-shadow:0 30px 70px rgba(0,0,0,.6)}
   .creator .cimg{position:absolute;inset:-7% 0;transition:transform 1.3s var(--ease-out)}
   .creator .cimg img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:saturate(.8);transition:filter .8s;transform:translateY(var(--py,0))}
@@ -237,32 +248,32 @@
   .creator::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,transparent 42%,rgba(8,8,9,.55) 68%,rgba(8,8,9,.96))}
   .creator::after{content:"";position:absolute;inset:12px;border:1px solid rgba(212,175,55,.55);opacity:0;transition:opacity .5s var(--ease);z-index:2;pointer-events:none}
   .creator:hover::after{opacity:1}
-  .creator figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:28px 26px}
-  .creator h3{font-family:'Playfair Display';font-weight:600;font-size:1.5rem;letter-spacing:-.01em}
+  .creator figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:24px 22px}
+  .creator h3{font-family:'Playfair Display';font-weight:600;font-size:1.35rem;letter-spacing:-.01em}
   .creator .crole{font-size:.9rem;color:var(--muted);margin-top:4px}
-  .creator .ccamp{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-top:14px;font-weight:500}
+  .creator .ccamp{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-top:12px;font-weight:500}
 
   /* ---------- Company at a glance (hairline grid) ---------- */
   .glance-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line-2);border:1px solid var(--line-2)}
-  .glance-grid > div{background:var(--bg-2);padding:56px 18px;text-align:center;transition:background .4s}
+  .glance-grid > div{background:var(--bg-2);padding:42px 18px;text-align:center;transition:background .4s}
   .glance-grid > div:hover{background:var(--bg-3)}
-  .glance-grid .gn{font-family:'Playfair Display';font-size:clamp(2.2rem,3.4vw,3.2rem);line-height:1;white-space:nowrap;letter-spacing:-.02em;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .glance-grid .gn{font-family:'Playfair Display';font-size:clamp(2rem,3vw,2.8rem);line-height:1;white-space:nowrap;letter-spacing:-.02em;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
   .glance-grid .gl{font-size:.66rem;color:var(--muted);letter-spacing:.2em;text-transform:uppercase;margin-top:16px}
 
   /* ---------- Dual path (glass panels, gradient borders) ---------- */
   .dual-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-  .dual{position:relative;overflow:hidden;border:1px solid transparent;border-radius:6px;padding:56px 48px;transition:transform .5s var(--ease-out),box-shadow .5s;
+  .dual{position:relative;overflow:hidden;border:1px solid transparent;border-radius:6px;padding:44px 40px;transition:transform .5s var(--ease-out),box-shadow .5s;
     background:linear-gradient(160deg,var(--bg-3),var(--bg-2)) padding-box,linear-gradient(160deg,rgba(212,175,55,.6),rgba(212,175,55,.06) 55%,rgba(212,175,55,.4)) border-box}
   .dual:first-child{background:linear-gradient(160deg,rgba(212,175,55,.12),var(--bg-2) 62%) padding-box,linear-gradient(160deg,rgba(212,175,55,.75),rgba(212,175,55,.08) 55%,rgba(212,175,55,.45)) border-box}
   .dual:hover{transform:translateY(-5px);box-shadow:0 30px 70px rgba(0,0,0,.55)}
-  .dual h3{font-family:'Playfair Display';font-size:2rem;margin:14px 0 18px;line-height:1.12;letter-spacing:-.015em}
-  .dual p{color:var(--muted);margin-bottom:34px;max-width:42ch;line-height:1.75}
+  .dual h3{font-family:'Playfair Display';font-size:1.8rem;margin:12px 0 14px;line-height:1.12;letter-spacing:-.015em}
+  .dual p{color:var(--muted);margin-bottom:28px;max-width:42ch;line-height:1.7}
 
   /* ---------- CTA + Contact ---------- */
   .contact{background:radial-gradient(900px 500px at 50% 0%,rgba(212,175,55,.10),transparent 60%),var(--bg-2)}
   .contact .wrap{max-width:760px;text-align:center}
-  .contact h2{font-size:clamp(2.2rem,5vw,3.6rem);margin-bottom:18px}
-  form{margin-top:52px;display:grid;grid-template-columns:1fr 1fr;gap:26px 36px;text-align:left}
+  .contact h2{font-size:clamp(2rem,4.2vw,3.2rem);margin-bottom:16px}
+  form{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:22px 32px;text-align:left}
   form .full{grid-column:1/-1}
   input,textarea,select{
     width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--text);
@@ -270,13 +281,14 @@
   }
   input::placeholder,textarea::placeholder{color:rgba(167,164,155,.5)}
   input:focus,textarea:focus,select:focus{outline:none;border-bottom-color:var(--gold);background:transparent}
-  textarea{min-height:110px;resize:vertical}
+  textarea{min-height:96px;resize:vertical}
   label{font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:0;display:block}
-  form .btn{width:100%;justify-content:center;margin-top:10px;padding:19px 32px}
+  form .btn{width:100%;justify-content:center;margin-top:6px;padding:18px 32px}
   .form-note{font-size:.82rem;color:var(--muted);margin-top:16px}
-  .contact-info{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 26px;margin-top:34px}
-  .contact-info a{font-size:.92rem;color:var(--muted);transition:.3s;padding:8px 4px;display:inline-flex;align-items:center;gap:9px}
+  .contact-info{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;margin-top:28px}
+  .contact-info a{font-size:.86rem;color:var(--muted);transition:.3s;padding:6px 2px;display:inline-flex;align-items:center;gap:9px}
   .contact-info a .ico{color:var(--gold)}
+  @media(min-width:901px){.contact-info{margin-left:-48px;margin-right:-48px}}
   .contact-info a:hover{color:var(--text)}
 
   /* ---------- Icons ---------- */
@@ -284,7 +296,7 @@
   .ico.sm{width:14px;height:14px}
 
   /* ---------- Footer ---------- */
-  footer{padding:84px 24px 36px;position:relative;background:linear-gradient(180deg,var(--bg),#060607)}
+  footer{padding:64px 24px 32px;position:relative;background:linear-gradient(180deg,var(--bg),#060607)}
   .foot-grid{display:grid;grid-template-columns:1.7fr 1fr 1.15fr 1.3fr;gap:48px}
   .foot-brand .logo{font-size:1.3rem}
   .foot-brand p{color:var(--muted);font-size:.94rem;max-width:36ch;margin:20px 0 28px}
@@ -299,7 +311,7 @@
   .socials{display:flex;gap:12px}
   .socials a{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:.3s var(--ease)}
   .socials a:hover{border-color:var(--gold);color:var(--gold);background:rgba(212,175,55,.07);transform:translateY(-3px);box-shadow:0 10px 24px rgba(212,175,55,.12)}
-  .foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap;margin-top:60px;padding-top:26px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap;margin-top:44px;padding-top:24px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
   .foot-meta{opacity:.75}
   .foot-top{display:inline-flex;align-items:center;gap:8px;color:var(--gold);transition:.3s}
   .foot-top:hover{color:var(--gold-soft)}
@@ -318,13 +330,13 @@
 
   /* ---------- Process (timeline) ---------- */
   .steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:0 32px;position:relative;padding-top:2px}
-  .steps::before{content:"";position:absolute;left:0;right:0;top:32px;height:1px;background:linear-gradient(90deg,var(--gold),var(--line) 60%,transparent)}
-  .step{position:relative;padding:72px 12px 0 0}
-  .step::before{content:"";position:absolute;left:0;top:27px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:1px solid var(--gold);box-shadow:0 0 0 5px var(--bg);transition:.4s var(--ease);z-index:1}
+  .steps::before{content:"";position:absolute;left:0;right:0;top:28px;height:1px;background:linear-gradient(90deg,var(--gold),var(--line) 60%,transparent)}
+  .step{position:relative;padding:60px 12px 0 0}
+  .step::before{content:"";position:absolute;left:0;top:23px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:1px solid var(--gold);box-shadow:0 0 0 5px var(--bg);transition:.4s var(--ease);z-index:1}
   .step:hover::before{background:var(--gold);box-shadow:0 0 0 5px var(--bg),0 0 22px rgba(212,175,55,.6)}
-  .step .no{font-family:'Playfair Display';font-size:3.8rem;line-height:1;font-weight:500;color:transparent;-webkit-text-stroke:1px rgba(212,175,55,.85);margin-bottom:18px;transition:color .4s}
+  .step .no{font-family:'Playfair Display';font-size:3.2rem;line-height:1;font-weight:500;color:transparent;-webkit-text-stroke:1px rgba(212,175,55,.85);margin-bottom:14px;transition:color .4s}
   .step:hover .no{color:var(--gold);-webkit-text-stroke:0}
-  .step h3{font-size:1.3rem;margin-bottom:10px}
+  .step h3{font-size:1.2rem;margin-bottom:8px}
   .step p{color:var(--muted);font-size:.95rem;line-height:1.7}
 
   /* ---------- Floating actions ---------- */
@@ -365,6 +377,7 @@
     .ben-grid{grid-template-columns:1fr;gap:56px}
     .founder-visual{margin:0 auto}
     .brand-wall{grid-template-columns:repeat(3,1fr)}
+    .brand.more{grid-column:span 3}
     .steps{grid-template-columns:1fr;gap:0}
     .steps::before{left:5px;top:0;bottom:0;right:auto;width:1px;height:auto;background:linear-gradient(180deg,var(--gold),var(--line) 70%,transparent)}
     .step{padding:0 0 48px 40px}
@@ -383,15 +396,16 @@
     #nav ul{display:none}
     .burger{display:flex}
     #nav.open ul{display:flex;position:absolute;top:64px;right:20px;flex-direction:column;background:var(--bg-soft);border:1px solid var(--line);padding:22px 28px;border-radius:8px;gap:20px;box-shadow:0 24px 50px rgba(0,0,0,.6)}
-    section{padding:88px 20px}
+    section{padding:64px 20px}
     form{grid-template-columns:1fr}
-    .hero{padding:130px 20px 150px}
+    .hero{padding:108px 20px 124px}
     .hero-stats>div{padding:6px 24px}
     .scroll-cue{display:none}
     .hero-ring{right:-40vw;width:120vw;opacity:.45}
     .tk span{font-size:.95rem}
+    .tk .tk-l{width:76px;height:31px;padding:5px 8px}
   }
-  @media(max-width:560px){.case-gallery{gap:12px}.case-item figcaption{padding:40px 14px 14px;font-size:.95rem}.case-item figcaption span{font-size:.55rem}.brand-wall{grid-template-columns:repeat(2,1fr)}.creator-grid{grid-template-columns:1fr 1fr;gap:12px}.creator figcaption{padding:18px 16px}.creator h3{font-size:1.15rem}.cat-grid{grid-template-columns:1fr 1fr}.cat{padding:28px 20px}.glance-grid{grid-template-columns:1fr 1fr}.foot-grid{grid-template-columns:1fr;gap:36px}.foot-bottom{justify-content:center;text-align:center}.brand{font-size:1.02rem;min-height:88px}.fab{right:14px}.fab.wa{bottom:14px}.fab.top{display:none}}
+  @media(max-width:560px){.hero-stats{margin-top:44px}.hero-stats>div{padding:4px 12px}.hero-stats .n{font-size:1.8rem}.hero-stats .l{font-size:.58rem;letter-spacing:.14em;margin-top:6px}.case-gallery{gap:12px}.case-item figcaption{padding:40px 14px 14px;font-size:.95rem}.case-item figcaption span{font-size:.55rem}.brand-wall{grid-template-columns:repeat(2,1fr)}.brand.more{grid-column:span 2}.creator-grid{grid-template-columns:1fr 1fr;gap:12px}.creator figcaption{padding:18px 16px}.creator h3{font-size:1.15rem}.cat-grid{grid-template-columns:1fr 1fr}.cat{padding:28px 20px}.glance-grid{grid-template-columns:1fr 1fr}.foot-grid{grid-template-columns:1fr;gap:36px}.foot-bottom{justify-content:center;text-align:center}.brand{font-size:1.02rem;min-height:88px}.fab{right:14px}.fab.wa{bottom:14px}.fab.top{display:none}}
 </style>
 
 <script type="application/ld+json">
@@ -469,7 +483,7 @@
     </div>
   </div>
   <a href="#about" class="scroll-cue" aria-label="Scroll to About"><span class="sc-line"></span><span>Scroll</span></a>
-  <div class="ticker" aria-hidden="true"><div class="ticker-track"><div class="tk"><span>Hyundai</span><i>◆</i><span>Vivo</span><i>◆</i><span>Nestlé</span><i>◆</i><span>Haldiram's</span><i>◆</i><span>MR.DIY</span><i>◆</i><span>Pine Labs</span><i>◆</i><span>Everteen</span><i>◆</i><span>Secret Temptation</span><i>◆</i><span>Hollyland</span><i>◆</i><span>Cesa Hair Care</span><i>◆</i><span>Ceregrow</span><i>◆</i><span>RENÉE</span><i>◆</i><span>Trends</span><i>◆</i><span>OZiva</span><i>◆</i><span>Samsung</span><i>◆</i><span>Bioderma</span><i>◆</i><span>DermaTouch</span><i>◆</i><span>Flipkart</span><i>◆</i><span>Myntra Beauty</span><i>◆</i></div><div class="tk"><span>Hyundai</span><i>◆</i><span>Vivo</span><i>◆</i><span>Nestlé</span><i>◆</i><span>Haldiram's</span><i>◆</i><span>MR.DIY</span><i>◆</i><span>Pine Labs</span><i>◆</i><span>Everteen</span><i>◆</i><span>Secret Temptation</span><i>◆</i><span>Hollyland</span><i>◆</i><span>Cesa Hair Care</span><i>◆</i><span>Ceregrow</span><i>◆</i><span>RENÉE</span><i>◆</i><span>Trends</span><i>◆</i><span>OZiva</span><i>◆</i><span>Samsung</span><i>◆</i><span>Bioderma</span><i>◆</i><span>DermaTouch</span><i>◆</i><span>Flipkart</span><i>◆</i><span>Myntra Beauty</span><i>◆</i></div></div></div>
+  <div class="ticker" aria-hidden="true"><div class="ticker-track"><div class="tk"><span class="tk-b"><span class="tk-l"><img src="brand-hyundai.webp" width="480" height="200" alt="" /></span><span>Hyundai</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-vivo.webp" width="480" height="200" alt="" /></span><span>Vivo</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-nestle.webp" width="480" height="200" alt="" /></span><span>Nestlé</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-haldiram.webp" width="480" height="200" alt="" /></span><span>Haldiram's</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-mrdiy.webp" width="480" height="200" alt="" /></span><span>MR.DIY</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-pinelabs.webp" width="480" height="200" alt="" /></span><span>Pine Labs</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-everteen.webp" width="480" height="200" alt="" /></span><span>Everteen</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-secret.webp" width="480" height="200" alt="" /></span><span>Secret Temptation</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-hollyland.webp" width="480" height="200" alt="" /></span><span>Hollyland</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-sesa.webp" width="480" height="200" alt="" /></span><span>Sesa Care</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-ceregrow.webp" width="480" height="200" alt="" /></span><span>Ceregrow</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-renee.webp" width="480" height="200" alt="" /></span><span>RENÉE</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-trends.webp" width="480" height="200" alt="" /></span><span>Trends</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-oziva.webp" width="480" height="200" alt="" /></span><span>OZiva</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-samsung.webp" width="480" height="200" alt="" /></span><span>Samsung</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-bioderma.webp" width="480" height="200" alt="" /></span><span>Bioderma</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-dermatouch.webp" width="480" height="200" alt="" /></span><span>DermaTouch</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-flipkart.webp" width="480" height="200" alt="" /></span><span>Flipkart</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-myntra.webp" width="480" height="200" alt="" /></span><span>Myntra Beauty</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-godrej.webp" width="480" height="200" alt="" /></span><span>Godrej Properties</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-ghar.webp" width="480" height="200" alt="" /></span><span>Ghar Soaps</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-meta.webp" width="480" height="200" alt="" /></span><span>Meta</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-zepto.webp" width="480" height="200" alt="" /></span><span>Zepto</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-nykaa.webp" width="480" height="200" alt="" /></span><span>Nykaa Fashion</span></span><i>◆</i></div><div class="tk"><span class="tk-b"><span class="tk-l"><img src="brand-hyundai.webp" width="480" height="200" alt="" /></span><span>Hyundai</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-vivo.webp" width="480" height="200" alt="" /></span><span>Vivo</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-nestle.webp" width="480" height="200" alt="" /></span><span>Nestlé</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-haldiram.webp" width="480" height="200" alt="" /></span><span>Haldiram's</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-mrdiy.webp" width="480" height="200" alt="" /></span><span>MR.DIY</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-pinelabs.webp" width="480" height="200" alt="" /></span><span>Pine Labs</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-everteen.webp" width="480" height="200" alt="" /></span><span>Everteen</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-secret.webp" width="480" height="200" alt="" /></span><span>Secret Temptation</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-hollyland.webp" width="480" height="200" alt="" /></span><span>Hollyland</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-sesa.webp" width="480" height="200" alt="" /></span><span>Sesa Care</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-ceregrow.webp" width="480" height="200" alt="" /></span><span>Ceregrow</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-renee.webp" width="480" height="200" alt="" /></span><span>RENÉE</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-trends.webp" width="480" height="200" alt="" /></span><span>Trends</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-oziva.webp" width="480" height="200" alt="" /></span><span>OZiva</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-samsung.webp" width="480" height="200" alt="" /></span><span>Samsung</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-bioderma.webp" width="480" height="200" alt="" /></span><span>Bioderma</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-dermatouch.webp" width="480" height="200" alt="" /></span><span>DermaTouch</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-flipkart.webp" width="480" height="200" alt="" /></span><span>Flipkart</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-myntra.webp" width="480" height="200" alt="" /></span><span>Myntra Beauty</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-godrej.webp" width="480" height="200" alt="" /></span><span>Godrej Properties</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-ghar.webp" width="480" height="200" alt="" /></span><span>Ghar Soaps</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-meta.webp" width="480" height="200" alt="" /></span><span>Meta</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-zepto.webp" width="480" height="200" alt="" /></span><span>Zepto</span></span><i>◆</i><span class="tk-b"><span class="tk-l"><img src="brand-nykaa.webp" width="480" height="200" alt="" /></span><span>Nykaa Fashion</span></span><i>◆</i></div></div></div>
 </section>
 
 <!-- ===================== ABOUT ===================== -->
@@ -487,11 +501,32 @@
   </div>
 </section>
 
+<!-- ===================== MEET THE CREATORS ===================== -->
+<section id="creators" class="benefits">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow"><span class="idx">02</span>Meet the Creators</span>
+      <h2>The faces behind our campaigns.</h2>
+      <p class="lead">From established celebrities to rising micro-creators, Filter Media collaborates with India's most engaging voices.</p>
+    </div>
+    <div class="creator-grid">
+      <figure class="creator reveal"><div class="cimg"><img src="creator-reem.webp" width="720" height="1280" loading="lazy" alt="Reem Shaikh" data-parallax="-26" /></div><figcaption><h3>Reem Shaikh</h3><p class="crole">Actress</p><p class="ccamp">Everteen Brand Campaign</p></figcaption></figure>
+      <figure class="creator reveal"><div class="cimg"><img src="creator-rohit.webp" width="355" height="480" loading="lazy" alt="Rohit Saraf" data-parallax="-26" /></div><figcaption><h3>Rohit Saraf</h3><p class="crole">Actor</p><p class="ccamp">Vivo Phone Campaign</p></figcaption></figure>
+      <figure class="creator reveal"><div class="cimg"><img src="creator-rashami.webp" width="735" height="916" loading="lazy" alt="Rashami Desai" data-parallax="-26" /></div><figcaption><h3>Rashami Desai</h3><p class="crole">Actress</p><p class="ccamp">Sesa Care Campaign</p></figcaption></figure>
+      <figure class="creator reveal"><div class="cimg"><img src="creator-kiku.webp" width="500" height="685" loading="lazy" alt="Kiku Sharda" data-parallax="-26" /></div><figcaption><h3>Kiku Sharda</h3><p class="crole">Actor</p><p class="ccamp">Pine Labs Campaign</p></figcaption></figure>
+      <figure class="creator reveal"><div class="cimg"><img src="creator-gulshan.webp" width="399" height="501" loading="lazy" alt="Gulshan Grover" data-parallax="-26" /></div><figcaption><h3>Gulshan Grover</h3><p class="crole">Actor</p><p class="ccamp">Celebrity Event</p></figcaption></figure>
+      <figure class="creator reveal"><div class="cimg"><img src="creator-parvati.webp" width="720" height="900" loading="lazy" alt="Parvati Nair" data-parallax="-26" /></div><figcaption><h3>Parvati Nair</h3><p class="crole">Actress</p><p class="ccamp">Celebrity Campaign</p></figcaption></figure>
+      <figure class="creator reveal"><div class="cimg"><img src="creator-shakti.webp" width="335" height="597" loading="lazy" alt="Shakti Kapoor" data-parallax="-26" /></div><figcaption><h3>Shakti Kapoor</h3><p class="crole">Actor</p><p class="ccamp">Drip Pipes &amp; DermaTouch</p></figcaption></figure>
+      <figure class="creator reveal"><div class="cimg"><img src="creator-shilpa.webp" width="500" height="750" loading="lazy" alt="Shilpa Shinde" data-parallax="-26" /></div><figcaption><h3>Shilpa Shinde</h3><p class="crole">Actress</p><p class="ccamp">Vertical Drama Series</p></figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== CREATOR NETWORK ===================== -->
 <section id="network">
   <div class="wrap">
     <div class="head reveal">
-      <span class="eyebrow"><span class="idx">02</span>Our Creator Network</span>
+      <span class="eyebrow"><span class="idx">03</span>Our Creator Network</span>
       <h2>1000+ creators across every category.</h2>
       <p class="lead">A pan-India network spanning every niche — so we match your brand with creators whose audience already loves what you do.</p>
     </div>
@@ -508,37 +543,20 @@
   </div>
 </section>
 
-<!-- ===================== MEET THE CREATORS ===================== -->
-<section id="creators" class="benefits">
-  <div class="wrap">
-    <div class="head reveal">
-      <span class="eyebrow"><span class="idx">03</span>Meet the Creators</span>
-      <h2>The faces behind our campaigns.</h2>
-      <p class="lead">From established celebrities to rising micro-creators, Filter Media collaborates with India's most engaging voices.</p>
-    </div>
-    <div class="creator-grid">
-      <figure class="creator reveal"><div class="cimg"><img src="creator-reem.webp" width="720" height="1280" loading="lazy" alt="Reem Shaikh" data-parallax="-26" /></div><figcaption><h3>Reem Shaikh</h3><p class="crole">Actress</p><p class="ccamp">Everteen Brand Campaign</p></figcaption></figure>
-      <figure class="creator reveal"><div class="cimg"><img src="creator-rohit.webp" width="355" height="480" loading="lazy" alt="Rohit Saraf" data-parallax="-26" /></div><figcaption><h3>Rohit Saraf</h3><p class="crole">Actor</p><p class="ccamp">Vivo Phone Campaign</p></figcaption></figure>
-      <figure class="creator reveal"><div class="cimg"><img src="creator-rashami.webp" width="735" height="916" loading="lazy" alt="Rashami Desai" data-parallax="-26" /></div><figcaption><h3>Rashami Desai</h3><p class="crole">Actress</p><p class="ccamp">Cesa Hair Care Campaign</p></figcaption></figure>
-      <figure class="creator reveal"><div class="cimg"><img src="creator-kiku.webp" width="500" height="685" loading="lazy" alt="Kiku Sharda" data-parallax="-26" /></div><figcaption><h3>Kiku Sharda</h3><p class="crole">Actor</p><p class="ccamp">Pine Labs Campaign</p></figcaption></figure>
-    </div>
-  </div>
-</section>
-
 <!-- ===================== FOUNDER ===================== -->
 <section id="founder" class="benefits">
   <div class="wrap ben-grid">
     <div class="reveal">
       <span class="eyebrow"><span class="idx">04</span>Leadership</span>
-      <h2 class="serif" style="font-size:clamp(2rem,3.8vw,3rem);margin-bottom:22px;letter-spacing:-.02em">Meet our Founder, <span class="gold-text">Ananya Gupta</span>.</h2>
+      <h2 class="serif" style="font-size:clamp(1.9rem,3.4vw,2.7rem);margin-bottom:18px;letter-spacing:-.02em">Meet our Founder, <span class="gold-text">Ananya Gupta</span>.</h2>
       <blockquote class="pull">“Connecting the right brands with the right creators — at the right moment.”</blockquote>
-      <p class="lead" style="margin-bottom:28px">Ananya Gupta is the Founder &amp; CEO of Filter Media. She leads the agency's vision, influencer marketing strategy, celebrity collaborations, and brand partnerships — driving campaigns that connect the right brands with the right creators at the right moment.</p>
+      <p class="lead" style="margin-bottom:24px">Ananya Gupta is the Founder &amp; CEO of Filter Media. She leads the agency's vision, influencer marketing strategy, celebrity collaborations, and brand partnerships — driving campaigns that connect the right brands with the right creators at the right moment.</p>
       <ul class="ben-list">
         <li><span class="chk">01</span><div><h3>Vision &amp; strategy</h3><p>Sets the direction for every campaign and the agency's growth across India.</p></div></li>
         <li><span class="chk">02</span><div><h3>Celebrity &amp; creator partnerships</h3><p>Personally curates collaborations that put brands at the heart of culture.</p></div></li>
         <li><span class="chk">03</span><div><h3>Brand partnerships</h3><p>Builds long-term relationships that turn campaigns into measurable business growth.</p></div></li>
       </ul>
-      <a class="btn btn-ghost" style="margin-top:32px" href="https://www.linkedin.com/in/ananya-gupta-8028b6171/" target="_blank" rel="noopener"><svg class="ico sm" aria-hidden="true"><use href="#i-in"/></svg> Connect on LinkedIn</a>
+      <a class="btn btn-ghost" style="margin-top:28px" href="https://www.linkedin.com/in/ananya-gupta-8028b6171/" target="_blank" rel="noopener"><svg class="ico sm" aria-hidden="true"><use href="#i-in"/></svg> Connect on LinkedIn</a>
     </div>
     <div class="founder-visual reveal">
       <div class="fv-img"><img src="founder.webp" width="600" height="536" loading="lazy" alt="Ananya Gupta, Founder & CEO of Filter Media" data-parallax="-22" /></div>
@@ -558,30 +576,35 @@
 
     <!-- Brand wall -->
     <ul class="brand-wall reveal" aria-label="Brands Filter Media has worked with">
-      <li class="brand spot">Hyundai</li>
-      <li class="brand spot">Vivo</li>
-      <li class="brand spot">Nestlé</li>
-      <li class="brand spot">Haldiram's</li>
-      <li class="brand spot">MR.DIY</li>
-      <li class="brand spot">Pine Labs</li>
-      <li class="brand spot">Everteen</li>
-      <li class="brand spot">Secret Temptation</li>
-      <li class="brand spot">Hollyland</li>
-      <li class="brand spot">Cesa Hair Care</li>
-      <li class="brand spot">Ceregrow</li>
-      <li class="brand spot">RENÉE</li>
-      <li class="brand spot">Trends</li>
-      <li class="brand spot">OZiva</li>
-      <li class="brand spot">Samsung</li>
-      <li class="brand spot">Bioderma</li>
-      <li class="brand spot">DermaTouch</li>
-      <li class="brand spot">Flipkart</li>
-      <li class="brand spot">Myntra Beauty</li>
+      <li class="brand spot"><span class="bl"><img src="brand-hyundai.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">Hyundai</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-vivo.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">Vivo</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-nestle.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">Nestlé</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-haldiram.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">Haldiram's</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-mrdiy.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">MR.DIY</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-pinelabs.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">Pine Labs</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-everteen.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">Everteen</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-secret.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">Secret Temptation</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-hollyland.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">Hollyland</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-sesa.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">Sesa Care</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-ceregrow.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">Ceregrow</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-renee.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">RENÉE</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-trends.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">Trends</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-oziva.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">OZiva</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-samsung.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">Samsung</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-bioderma.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">Bioderma</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-dermatouch.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">DermaTouch</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-flipkart.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">Flipkart</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-myntra.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">Myntra Beauty</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-godrej.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">Godrej Properties</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-ghar.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">Ghar Soaps</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-meta.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">Meta</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-zepto.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">Zepto</span></li>
+      <li class="brand spot"><span class="bl"><img src="brand-nykaa.webp" width="480" height="200" loading="lazy" alt="" /></span><span class="bn">Nykaa Fashion</span></li>
       <li class="brand more">&amp; more</li>
     </ul>
 
     <!-- Case studies -->
-    <div class="head reveal" style="margin-top:96px;max-width:100%;text-align:center">
+    <div class="head reveal" style="margin-top:76px;max-width:100%;text-align:center">
       <span class="eyebrow c">Case Studies</span>
       <h2>Campaigns we've delivered.</h2>
       <p class="lead" style="margin:0 auto">Real brands. Real creators. Real results — a selection of campaigns executed by Filter Media across India.</p>
@@ -617,12 +640,12 @@
 <!-- ===================== COMPANY AT A GLANCE ===================== -->
 <section id="glance" class="benefits">
   <div class="wrap">
-    <div class="head reveal" style="max-width:100%;text-align:center;margin-bottom:56px">
+    <div class="head reveal" style="max-width:100%;text-align:center;margin-bottom:40px">
       <span class="eyebrow c"><span class="idx">07</span>Company at a Glance</span>
       <h2>Numbers that speak for themselves.</h2>
     </div>
     <div class="glance-grid">
-      <div class="reveal"><div class="gn" data-count="1000" data-suffix="+">1000+</div><div class="gl">Influencers Network</div></div>
+      <div class="reveal"><div class="gn" data-count="1000" data-suffix="+">1000+</div><div class="gl">Influencer Network</div></div>
       <div class="reveal"><div class="gn" data-count="50" data-suffix="+">50+</div><div class="gl">Campaigns Executed</div></div>
       <div class="reveal"><div class="gn" data-count="20" data-suffix="M+">20M+</div><div class="gl">Monthly Reach</div></div>
       <div class="reveal"><div class="gn" data-count="1000" data-suffix="+">1000+</div><div class="gl">Content Deliverables</div></div>
@@ -710,8 +733,8 @@
         <h4>Explore</h4>
         <ul>
           <li><a href="#about">About</a></li>
-          <li><a href="#network">Creator Network</a></li>
           <li><a href="#creators">Meet the Creators</a></li>
+          <li><a href="#network">Creator Network</a></li>
           <li><a href="#founder">Our Founder</a></li>
           <li><a href="#work">Work &amp; Case Studies</a></li>
           <li><a href="#process">How We Work</a></li>

@@ -62,6 +62,27 @@ A simple, transparent process — so you always know what's happening, who's cre
 
 ---
 
+## Celebrity & Creator Collaborations
+
+From established celebrities to rising micro-creators, Filter Media collaborates with India's most engaging voices.
+
+<table>
+  <tr>
+    <td align="center"><img src="creator-reem.webp" width="150" alt="Reem Shaikh" /><br /><b>Reem Shaikh</b><br />Actress<br /><sub>Everteen Brand Campaign</sub></td>
+    <td align="center"><img src="creator-rohit.webp" width="150" alt="Rohit Saraf" /><br /><b>Rohit Saraf</b><br />Actor<br /><sub>Vivo Phone Campaign</sub></td>
+    <td align="center"><img src="creator-rashami.webp" width="150" alt="Rashami Desai" /><br /><b>Rashami Desai</b><br />Actress<br /><sub>Sesa Care Campaign</sub></td>
+    <td align="center"><img src="creator-kiku.webp" width="150" alt="Kiku Sharda" /><br /><b>Kiku Sharda</b><br />Actor<br /><sub>Pine Labs Campaign</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="creator-gulshan.webp" width="150" alt="Gulshan Grover" /><br /><b>Gulshan Grover</b><br />Actor<br /><sub>Celebrity Event</sub></td>
+    <td align="center"><img src="creator-parvati.webp" width="150" alt="Parvati Nair" /><br /><b>Parvati Nair</b><br />Actress<br /><sub>Celebrity Campaign</sub></td>
+    <td align="center"><img src="creator-shakti.webp" width="150" alt="Shakti Kapoor" /><br /><b>Shakti Kapoor</b><br />Actor<br /><sub>Drip Pipes & DermaTouch</sub></td>
+    <td align="center"><img src="creator-shilpa.webp" width="150" alt="Shilpa Shinde" /><br /><b>Shilpa Shinde</b><br />Actress<br /><sub>Vertical Drama Series</sub></td>
+  </tr>
+</table>
+
+---
+
 ## Our Creator Network
 
 A pan-India network of **1000+ creators** spanning every niche — so we match your brand with creators whose audience already loves what you do.
@@ -79,26 +100,11 @@ A pan-India network of **1000+ creators** spanning every niche — so we match y
 
 ---
 
-## Celebrity & Creator Collaborations
-
-From established celebrities to rising micro-creators, Filter Media collaborates with India's most engaging voices.
-
-<table>
-  <tr>
-    <td align="center"><img src="creator-reem.webp" width="150" alt="Reem Shaikh" /><br /><b>Reem Shaikh</b><br />Actress<br /><sub>Everteen Brand Campaign</sub></td>
-    <td align="center"><img src="creator-rohit.webp" width="150" alt="Rohit Saraf" /><br /><b>Rohit Saraf</b><br />Actor<br /><sub>Vivo Phone Campaign</sub></td>
-    <td align="center"><img src="creator-rashami.webp" width="150" alt="Rashami Desai" /><br /><b>Rashami Desai</b><br />Actress<br /><sub>Cesa Hair Care Campaign</sub></td>
-    <td align="center"><img src="creator-kiku.webp" width="150" alt="Kiku Sharda" /><br /><b>Kiku Sharda</b><br />Actor<br /><sub>Pine Labs Campaign</sub></td>
-  </tr>
-</table>
-
----
-
 ## Brands We've Worked With
 
 From global tech to homegrown favourites — brands partner with Filter Media to reach India through creators and celebrities.
 
-**Hyundai** · **Vivo** · **Nestlé** · **Haldiram's** · **MR.DIY** · **Pine Labs** · **Everteen** · **Secret Temptation** · **Hollyland** · **Cesa Hair Care** · **Ceregrow** · **RENÉE** · **Trends** · **OZiva** · **Samsung** · **Bioderma** · **DermaTouch** · **Flipkart** · **Myntra Beauty** · *and more*
+**Hyundai** · **Vivo** · **Nestlé** · **Haldiram's** · **MR.DIY** · **Pine Labs** · **Everteen** · **Secret Temptation** · **Hollyland** · **Sesa Care** · **Ceregrow** · **RENÉE** · **Trends** · **OZiva** · **Samsung** · **Bioderma** · **DermaTouch** · **Flipkart** · **Myntra Beauty** · **Godrej Properties** · **Ghar Soaps** · **Meta** · **Zepto** · **Nykaa Fashion** · *and more*
 
 ---
 
@@ -188,6 +194,7 @@ This repo is the source of the live website at **[filtermedia.co.in](https://fil
 ├── logo.webp         # header / footer mark
 ├── founder.webp
 ├── creator-*.webp    # celebrity & creator portraits
+├── brand-*.webp      # client brand logos (trust wall)
 └── case-*.webp       # case-study creatives
 ```
 
